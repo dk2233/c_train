@@ -13,3 +13,8 @@ test: $(obj)
 	cc $(CFLAGS) -o test $(obj) 
 
 #array_func.o: array_func.c
+
+clean: 
+	rm test
+	rm *.o
+
