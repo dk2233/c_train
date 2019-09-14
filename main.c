@@ -29,11 +29,10 @@ int main(int argc ,char *argv[])
     {
         printf("Give as argument number of array items\n");
     }
-    printf(" give string \n ");
+    printf(" give string:");
 
-    scanf("%s",string_to_change);
+    scanf("%[^\n]s",string_to_change);
 
-    
     string_letter_replace(string_to_change);
     printf("%s\n",string_to_change);
 
