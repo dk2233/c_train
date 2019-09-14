@@ -7,7 +7,7 @@ CFLAGS = -Iarrays
 #VPATH = arrays
 
 vpath %.c ./ arrays/
-obj= main.o array_func.o
+obj= main.o array_func.o str_change.o
 
 test: $(obj)
 	cc $(CFLAGS) -o test $(obj) 
