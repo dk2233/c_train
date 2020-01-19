@@ -1,5 +1,5 @@
 #include <string.h>
-#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct{
     char searched;
@@ -28,7 +28,7 @@ void string_letter_replace(char *input_string)
     printf("%s\n",input_string);
     //for(char i=0;i<strlen(input_string);i++)
     {
-        for(char letter_iter=0;letter_iter<NR_LETTER_TO_CHANGE; letter_iter++)
+        for(unsigned int letter_iter=0;letter_iter<NR_LETTER_TO_CHANGE; letter_iter++)
         {
             do
             {

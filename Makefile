@@ -2,7 +2,7 @@ $CC =gcc
 
 INC_FOLDER=arrays
 
-CFLAGS = -Iarrays
+CFLAGS = -Iarrays -Wall -Wpedantic -O3
 
 #VPATH = arrays
 
