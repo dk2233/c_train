@@ -1,20 +1,40 @@
-$CC =gcc
+CC =gcc
 
-INC_FOLDER=arrays
-
-CFLAGS = -Iarrays
-
-#VPATH = arrays
+INC_FOLDERS=-Iarrays -Istrings -Ifun_pointers
 
 vpath %.c ./ arrays/
-obj= main.o array_func.o str_change.o
+VPATH = ./ arrays
+CFLAGS = $(INC_FOLDERS) -c
 
-test: $(obj)
-	cc $(CFLAGS) -o test $(obj) 
+SRC := $(wildcard *.c ) array_func.c 
 
-#array_func.o: array_func.c
+OBJ := $(patsubst %.c, %.o, $(SRC))
+OUT := ctests 
+ARG =-Wpedantic
 
+OBJDIR := _build
+OBJS := $(addprefix $(OBJDIR)/,$(OBJ))
+
+
+$(OBJDIR)/%.o: %.c
+	@echo $(SRC)
+	@echo $(OBJ)
+	@echo "compile "$<
+	$(CC) $(ARG) $(CFLAGS) $< -o $@
+
+OUTPUT_OPTION = 
+
+all: $(OBJS)
+	$(CC) $^ -o $(OUT)
+
+$(OBJS): | $(OBJDIR)
+
+$(OBJDIR):
+	mkdir $(OBJDIR)
+
+.PHONY: clean
 clean: 
-	rm test
-	rm *.o
+	-rm *.o
+	-rm $(OBJDIR)/*.o
+	-rm $(OUT)
 
