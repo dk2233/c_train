@@ -2,11 +2,15 @@ CC =gcc
 
 INC_FOLDERS=-Iarrays -Istrings -Ifun_pointers
 
-vpath %.c ./ arrays/
-VPATH = ./ arrays
+vpath %.c . arrays strings
+vpath %.h  arrays strings
+#VPATH = .:arrays:strings
 CFLAGS = $(INC_FOLDERS) -c
+#this is important to have all folders with sources defined
+FOLDERS = . arrays strings
 
-SRC := $(wildcard *.c ) array_func.c 
+#notdir - it returns file without folder in file name
+SRC := $(foreach folder,$(FOLDERS), $(notdir $(wildcard $(folder)/*.c )))
 
 OBJ := $(patsubst %.c, %.o, $(SRC))
 OUT := ctests 
@@ -34,7 +38,6 @@ $(OBJDIR):
 
 .PHONY: clean
 clean: 
-	-rm *.o
 	-rm $(OBJDIR)/*.o
 	-rm $(OUT)
 
