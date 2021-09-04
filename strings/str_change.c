@@ -6,7 +6,8 @@ typedef struct{
     char new_letter;
 }letter_change_t;
 
-static const letter_change_t letter_change_a[]={
+static const letter_change_t letter_change_a[]=
+{
     {'m','e'},
     {'n','l'},
     {'t','n'},
@@ -24,7 +25,7 @@ static const letter_change_t letter_change_a[]={
 void string_letter_replace(char *input_string)
 {
     char *a_p;
-    
+
     printf("%s\n",input_string);
     //for(char i=0;i<strlen(input_string);i++)
     {
@@ -38,7 +39,7 @@ void string_letter_replace(char *input_string)
                     a_p[0]=letter_change_a[letter_iter].new_letter;
             }while(a_p !=NULL);
             /*if (letter_change_a[letter_iter].searched==input_string[i])
-                input_string[i]=letter_change_a[letter_iter].new_letter;*/
+              input_string[i]=letter_change_a[letter_iter].new_letter;*/
         }
     }
 }
