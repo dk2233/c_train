@@ -3,6 +3,6 @@
 #define ARRAY_SIZE	4U
 
 
-//unsigned int [] convert_aray(unsigned int tab_in[]);
+extern int * array_parse(int nr_element);
 
-int * array_parse(int nr_element);
+int check_possibility_of_not_defining_size(void);

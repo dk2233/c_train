@@ -37,7 +37,8 @@ int main(int argc ,char *argv[])
     string_letter_replace(string_to_change);
     printf("%s\n",string_to_change);
 
+    check_possibility_of_not_defining_size();
 
-	return 0;
+    return 0;
 }
 
