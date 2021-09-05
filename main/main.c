@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "array_func.h"
 #include "str_change.h"
+#include "func_pointers.h"
+#include "different_functions.h"
 
 
 int main(int argc ,char *argv[])
@@ -38,6 +40,8 @@ int main(int argc ,char *argv[])
     printf("%s\n",string_to_change);
 
     check_possibility_of_not_defining_size();
+
+    call_one_function_pointer(&sum_to_int, 3 , 4);
 
     return 0;
 }
