@@ -1,0 +1,4 @@
+./arrays/array_func.c
+./arrays/array_func.h
+./main/main.c
+./strings/str_change.c
