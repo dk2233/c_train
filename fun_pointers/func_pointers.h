@@ -17,8 +17,9 @@
  */
 typedef struct
 {
-    void (*function_p)(void* );
-    void* argument;
+    void (*function_p)(void* , void * );
+    void* argument1;
+    void* argument2;
 } one_func_pointer_def;
 
 
@@ -30,6 +31,7 @@ typedef struct
 } function_pointers_definition;
 
 
-
-
 extern void call_one_function_pointer ( void  (*function)(int, int), int a, int b );
+
+extern void call_all_function ( function_pointers_definition *struct_of_func  );
+

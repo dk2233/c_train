@@ -14,7 +14,7 @@ SRC := $(foreach folder,$(FOLDERS), $(notdir $(wildcard $(folder)/*.c )))
 
 OBJ := $(patsubst %.c, %.o, $(SRC))
 OUT := ctests 
-ARG =-Wpedantic
+ARG =-std=c99
 
 OBJDIR := _build
 OBJS := $(addprefix $(OBJDIR)/,$(OBJ))

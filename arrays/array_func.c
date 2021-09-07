@@ -1,5 +1,6 @@
 #include "array_func.h"	
 #include "stdlib.h"
+#include "stdio.h"
 
 unsigned int tab_a[ARRAY_SIZE];
 unsigned int * array_p;

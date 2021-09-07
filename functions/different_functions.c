@@ -16,10 +16,11 @@
  * =====================================================================================
  */
 #include <stdlib.h>
+#include <stdio.h>
 
-void sum_to_int(int a, int b)
+void sum_to_int(int* a, int* b)
 {
-    printf("sum =  %d \n",a + b);  
+    printf("sum =  %d \n",*a + *b);  
 
 
 }

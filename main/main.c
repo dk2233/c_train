@@ -39,9 +39,29 @@ int main(int argc ,char *argv[])
     string_letter_replace(string_to_change);
     printf("%s\n",string_to_change);
 
+
     check_possibility_of_not_defining_size();
 
     call_one_function_pointer(&sum_to_int, 3 , 4);
+
+
+
+
+    function_pointers_definition functions_def_struct = 
+    {
+        .elements_number = 1U,
+        .func_array[1] = 
+        {
+              sum_to_int,
+                (void*)((uint32_t) 2),
+                (void*)((uint32_t) 5)
+            
+
+        }
+
+    };
+
+    call_all_function( &functions_def_struct);
 
     return 0;
 }

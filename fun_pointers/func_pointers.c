@@ -17,6 +17,7 @@
  */
 #include <stdlib.h>
 #include "func_pointers.h"
+#include "stdio.h"
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  call_all_function
@@ -24,12 +25,13 @@
  * =====================================================================================
  */
     void
-call_all_function ( function_pointers_definition *array_of_func(void* input_paramter), size_t elements_nr  )
+call_all_function ( function_pointers_definition *struct_of_func   )
 {
-    for(unsigned int i = 0; i < elements_nr; i++)
-    {
-        array_of_func; 
+    printf("call_all_function\n");
 
+    for(unsigned int i = 0; i < struct_of_func->elements_number; i++)
+    {
+        struct_of_func->func_array[i].function_p( struct_of_func->func_array[i].argument); 
     }
 }		/* -----  end of function call_all_function  ----- */
 
@@ -43,6 +45,9 @@ call_all_function ( function_pointers_definition *array_of_func(void* input_para
     void
 call_one_function_pointer ( void  (*function)(int, int), int a, int b )
 {
-    function(a,b);
+    printf("call_one_function_pointer\n");
+    (*function)(a,b);
     return ;
 }		/* -----  end of function call_one_function_pointer  ----- */
+
+
