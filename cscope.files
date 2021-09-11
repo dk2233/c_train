@@ -2,3 +2,5 @@
 ./arrays/array_func.h
 ./main/main.c
 ./strings/str_change.c
+./fun_pointers/func_pointers.c
+./functions/different_function.c

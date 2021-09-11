@@ -50,9 +50,9 @@ int main(int argc ,char *argv[])
     function_pointers_definition functions_def_struct = 
     {
         .elements_number = 1U,
-        .func_array[1] = 
+        .func_array[0] = 
         {
-              sum_to_int,
+              &sum_to_int,
                 (void*)((uint32_t) 2),
                 (void*)((uint32_t) 5)
             

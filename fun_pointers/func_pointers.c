@@ -31,7 +31,7 @@ call_all_function ( function_pointers_definition *struct_of_func   )
 
     for(unsigned int i = 0; i < struct_of_func->elements_number; i++)
     {
-        struct_of_func->func_array[i].function_p( struct_of_func->func_array[i].argument); 
+        struct_of_func->func_array[i].function_p( struct_of_func->func_array[i].argument1, struct_of_func->func_array[i].argument2); 
     }
 }		/* -----  end of function call_all_function  ----- */
 
@@ -43,10 +43,10 @@ call_all_function ( function_pointers_definition *struct_of_func   )
  * =====================================================================================
  */
     void
-call_one_function_pointer ( void  (*function)(int, int), int a, int b )
+call_one_function_pointer ( void  (*function)(int *, int *), int a, int b )
 {
     printf("call_one_function_pointer\n");
-    (*function)(a,b);
+    (*function)(&a,&b);
     return ;
 }		/* -----  end of function call_one_function_pointer  ----- */
 

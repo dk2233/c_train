@@ -26,12 +26,12 @@ typedef struct
 typedef struct 
 {
     int elements_number;
-    one_func_pointer_def func_array[];
+    one_func_pointer_def func_array[1];
 
 } function_pointers_definition;
 
 
-extern void call_one_function_pointer ( void  (*function)(int, int), int a, int b );
+extern void call_one_function_pointer ( void  (*function)(int *, int *), int a, int b );
 
 extern void call_all_function ( function_pointers_definition *struct_of_func  );
 
