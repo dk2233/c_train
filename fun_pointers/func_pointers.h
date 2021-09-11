@@ -26,7 +26,7 @@ typedef struct
 typedef struct 
 {
     int elements_number;
-    one_func_pointer_def func_array[1];
+    one_func_pointer_def func_array[2];
 
 } function_pointers_definition;
 

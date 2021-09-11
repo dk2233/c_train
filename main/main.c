@@ -46,16 +46,24 @@ int main(int argc ,char *argv[])
 
 
 
-
+    int a =2;
+    int b = 5;
+    char *str1 = "tekst - testowy !? nie!@";
+    char sss = '?';
     function_pointers_definition functions_def_struct = 
     {
-        .elements_number = 1U,
+        .elements_number = 2U,
         .func_array[0] = 
         {
-              &sum_to_int,
-                (void*)((uint32_t) 2),
-                (void*)((uint32_t) 5)
-            
+            &sum_to_int,
+            (void *)&a ,
+            (void *)&b
+        },
+        .func_array[1] = 
+        {
+            &str_op_find_char,
+            (void * )str1,
+            (void*)&sss,
 
         }
 

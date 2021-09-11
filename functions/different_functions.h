@@ -16,4 +16,5 @@
  * =====================================================================================
  */
 
-extern void sum_to_int ( int, int );
+extern void sum_to_int ( int *, int* );
+extern  void str_op_find_char ( void * str_in, void * char_in  );
