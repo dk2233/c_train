@@ -50,9 +50,12 @@ int main(int argc ,char *argv[])
     int b = 5;
     char *str1 = "tekst - testowy !? nie!@";
     char sss = '?';
+
+    char *file_name = "cscope.files";
+    FILE *file_hd; 
     function_pointers_definition functions_def_struct = 
     {
-        .elements_number = 2U,
+        .elements_number = HOW_MANY_FUNCTION,
         .func_array[0] = 
         {
             &sum_to_int,
@@ -65,11 +68,21 @@ int main(int argc ,char *argv[])
             (void * )str1,
             (void*)&sss,
 
-        }
-
+        },
+        .func_array[2] ={ &func_open_file,  (void *)file_name, (void *)file_hd}, 
     };
 
     call_all_function( &functions_def_struct);
+
+    printf("file handler %ld \n", *(long *)file_hd);
+
+    char *str_from_file = calloc(1000U, sizeof(char));
+    str_line((void *)file_hd,(void *) str_from_file);
+    printf("first line %s \n", str_from_file) ;
+
+    fclose(file_hd);
+
+    free(str_from_file);
 
     return 0;
 }

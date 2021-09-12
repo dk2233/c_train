@@ -18,11 +18,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void sum_to_int(int* a, int* b)
+void sum_to_int(void* a, void* b)
 {
-    printf("sum =  %d \n",*a + *b);  
-
-
+    printf("sum =  %d \n",*(int *)a + *(int *)b);  
 }
 
 
@@ -51,3 +49,26 @@ str_op_find_char ( void * str_in, void * char_in  )
     printf("NOT found letter %c in %s \n",searched, (char *)str_in);
 
 }		/* -----  end of function str_op_find_char  ----- */
+
+void func_open_file(void * name, void * file_handler)
+{
+    file_handler = (void *)fopen(name,"r");
+    printf("letter %c \n",fgetc((FILE*)file_handler));
+}
+
+
+
+void str_line(void * file_handler, void * return_str)
+{
+    int letter = fgetc((FILE*)file_handler);
+    char *str_tmp;
+    str_tmp = (char *)return_str;
+    while((letter != '\n') && (letter != '\0') && (letter > -1) )
+    {
+        *(str_tmp++) = letter;
+        letter = fgetc((FILE*) file_handler);
+    }
+
+    return_str = (void *)str_tmp;
+
+}

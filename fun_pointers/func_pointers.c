@@ -43,7 +43,7 @@ call_all_function ( function_pointers_definition *struct_of_func   )
  * =====================================================================================
  */
     void
-call_one_function_pointer ( void  (*function)(int *, int *), int a, int b )
+call_one_function_pointer ( void  (*function)(void *, void *), int a, int b )
 {
     printf("call_one_function_pointer\n");
     (*function)(&a,&b);
