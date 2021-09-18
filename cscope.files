@@ -1,4 +1,9 @@
 ./arrays/array_func.c
-./arrays/array_func.h
+./functions/different_functions.c
+./fun_pointers/func_pointers.c
 ./main/main.c
 ./strings/str_change.c
+./arrays/array_func.h
+./functions/different_functions.h
+./fun_pointers/func_pointers.h
+./strings/str_change.h
