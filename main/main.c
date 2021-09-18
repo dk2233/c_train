@@ -51,8 +51,15 @@ int main(int argc ,char *argv[])
     char *str1 = "tekst - testowy !? nie!@";
     char sss = '?';
 
+    /*  opening file in c */
     char *file_name = "cscope.files";
     FILE *file_hd; 
+    file_hd = fopen(file_name,"r");
+    char *str_from_file = calloc(1000U, sizeof(char));
+    str_line((void *)file_hd,(void *) str_from_file);
+    printf("1. first line %s \n", str_from_file) ;
+
+    FILE * file_hd2;
     function_pointers_definition functions_def_struct = 
     {
         .elements_number = HOW_MANY_FUNCTION,
@@ -69,18 +76,19 @@ int main(int argc ,char *argv[])
             (void*)&sss,
 
         },
-        .func_array[2] ={ &func_open_file,  (void *)file_name, (void *)file_hd}, 
+        .func_array[2] ={ &func_open_file,  (void *)file_name, (void *)file_hd2}, 
     };
 
     call_all_function( &functions_def_struct);
 
-    printf("file handler %ld \n", *(long *)file_hd);
+    printf("file handler %ld \n", *(long *)file_hd2);
 
-    char *str_from_file = calloc(1000U, sizeof(char));
-    str_line((void *)file_hd,(void *) str_from_file);
-    printf("first line %s \n", str_from_file) ;
+    str_from_file = calloc(1000U, sizeof(char));
+    str_line((void *)file_hd2,(void *) str_from_file);
+    printf("2. first line %s \n", str_from_file) ;
 
     fclose(file_hd);
+    fclose(file_hd2);
 
     free(str_from_file);
 

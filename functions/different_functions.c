@@ -52,14 +52,26 @@ str_op_find_char ( void * str_in, void * char_in  )
 
 void func_open_file(void * name, void * file_handler)
 {
-    file_handler = (void *)fopen(name,"r");
-    printf("letter %c \n",fgetc((FILE*)file_handler));
+    FILE* file_hd;
+    file_hd = fopen(name,"r");
+
+    printf("%ld\n",file_hd);
+    
+    char char1 = fgetc(file_hd);
+    printf("line from file: %s\n",name);
+    while(char1 != '\n')
+    {
+        char1 = fgetc(file_hd);
+        printf("%c",char1);
+    }
+    file_handler = (void*) file_hd;
 }
 
 
 
 void str_line(void * file_handler, void * return_str)
 {
+    printf("%ld\n",(FILE*)file_handler);
     int letter = fgetc((FILE*)file_handler);
     char *str_tmp;
     str_tmp = (char *)return_str;
