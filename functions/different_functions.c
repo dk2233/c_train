@@ -58,7 +58,7 @@ void func_open_file(void * name, void * file_handler)
     printf("%ld\n",file_hd);
     
     char char1 = fgetc(file_hd);
-    printf("line from file: %s\n",name);
+    printf("line from file: %s\n",(char*)name);
     while(char1 != '\n')
     {
         char1 = fgetc(file_hd);

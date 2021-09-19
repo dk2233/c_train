@@ -4,6 +4,7 @@
 #include "str_change.h"
 #include "func_pointers.h"
 #include "different_functions.h"
+#include "std_lib_object.h"
 
 
 int main(int argc ,char *argv[])
@@ -91,6 +92,12 @@ int main(int argc ,char *argv[])
     fclose(file_hd2);
 
     free(str_from_file);
+
+    char * text = "cscope.files";
+    if (0 == std_objects.compare_strings(file_name, text))
+    {
+        printf(" %s and %s same \n",file_name, text);
+    }
 
     return 0;
 }

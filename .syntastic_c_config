@@ -3,3 +3,4 @@
 -Istrings
 -Imain
 -Ifunctions
+-Istd_lib_object
