@@ -4,6 +4,7 @@
 #include "str_change.h"
 #include "func_pointers.h"
 #include "different_functions.h"
+#include "recur.h"
 
 
 int main(int argc ,char *argv[])
@@ -31,6 +32,7 @@ int main(int argc ,char *argv[])
     else
     {
         printf("Give as argument number of array items\n");
+        nr = 10U;
     }
     printf(" give string:");
 
@@ -83,14 +85,18 @@ int main(int argc ,char *argv[])
 
     printf("file handler %ld \n", *(long *)file_hd2);
 
-    str_from_file = calloc(1000U, sizeof(char));
-    str_line((void *)file_hd2,(void *) str_from_file);
-    printf("2. first line %s \n", str_from_file) ;
+/*     str_from_file = calloc(1000U, sizeof(char));
+ *     str_line((void *)file_hd2,(void *) str_from_file);
+ *     printf("2. first line %s \n", str_from_file) ;
+ */
 
     fclose(file_hd);
     fclose(file_hd2);
 
     free(str_from_file);
+
+
+    printf(" ones in %d is %d\n            ", nr, bitCount(nr));
 
     return 0;
 }
