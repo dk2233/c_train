@@ -12,6 +12,9 @@ unsigned short int cast_uint_to_int(short int a, short int b);
 extern 
 void loop_all_tests(void);
 
+extern 
+void loop_all_tests_int(void);
+
 int main(int argc ,char *argv[])
 {
     int *tab;
@@ -109,6 +112,7 @@ int main(int argc ,char *argv[])
 
     
     loop_all_tests();
+    loop_all_tests_int();
 
     return 0;
 }
