@@ -1,13 +1,13 @@
 CC =gcc
 
-INC_FOLDERS=-Iarrays -Istrings -Ifun_pointers -Ifunctions -Icasts
+INC_FOLDERS=-Iarrays -Istrings -Ifun_pointers -Ifunctions -Idefines -Icasts
 
 vpath %.c main arrays strings functions fun_pointers casts
-vpath %.h  arrays strings functions fun_pointers casts
+vpath %.h  arrays strings functions fun_pointers defines casts
 #VPATH = .:arrays:strings
 CFLAGS = $(INC_FOLDERS) -c
 #this is important to have all folders with sources defined
-FOLDERS = main arrays strings functions fun_pointers casts
+FOLDERS = main arrays strings functions fun_pointers defines casts
 
 #notdir - it returns file without folder in file name
 SRC := $(foreach folder,$(FOLDERS), $(notdir $(wildcard $(folder)/*.c )))
