@@ -5,6 +5,11 @@
 #include "func_pointers.h"
 #include "different_functions.h"
 
+extern 
+unsigned short int cast_uint_to_int(short int a, short int b);
+
+extern 
+void loop_all_tests(void);
 
 int main(int argc ,char *argv[])
 {
@@ -91,6 +96,9 @@ int main(int argc ,char *argv[])
     fclose(file_hd2);
 
     free(str_from_file);
+
+    
+    loop_all_tests();
 
     return 0;
 }
