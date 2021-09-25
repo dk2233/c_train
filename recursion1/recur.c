@@ -23,6 +23,7 @@ int bitCount2(int value)
     {
 
     } 
+    return 0;
 }
 
 int rec_mul(int input)
@@ -34,4 +35,24 @@ int rec_mul(int input)
         result = rec_mul(input) + 2U;
         input--;
     }
+
+    return result;
+}
+
+int power_of_2(int base, int input)
+{
+    /*  2^2 - 2 + 2
+     *  2^3 - (2 + 2) + (2 + 2) 
+     *
+     *  */
+    static int result = 1;
+
+    input--;
+    if (input > 0)
+    {
+        result = base + base;
+
+        result = power_of_2(result, input);
+    }
+    return result;
 }
