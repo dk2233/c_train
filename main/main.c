@@ -92,6 +92,31 @@ int main(int argc ,char *argv[])
 
     free(str_from_file);
 
+/* added pointers play */
+    int var_a = 100;
+    const int * pointer_to_const;
+    pointer_to_const = &var_a;
+
+    /*  here pointer with uncheangable address is created  */
+    int * const const_pointer = &var_a;
+    /* this will create an error  
+     *   const_pointer = &var_a;
+     */
+
+    /*  this is fine */
+    pointer_to_const = &var_a;
+
+    var_a++;
+    pointer_to_const++;
+    /*  this below will not work
+     *  constant address of pointer was defined*/
+//    const_pointer++;
+
+    var_a++;
+    /*this will not work*/  
+ //(*pointer_to_const)++;
+
+
     return 0;
 }
 
