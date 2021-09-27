@@ -54,10 +54,18 @@ int main(int argc ,char *argv[])
     char *file_name = "cscope.files";
     FILE *file_hd; 
     file_hd = fopen(file_name,"r");
+
     char *str_from_file = calloc(1000U, sizeof(char));
-    str_line((void *)file_hd,(void *) str_from_file);
-    printf("1. first line %s \n", str_from_file) ;
-    fclose(file_hd);
+    if (NULL != file_hd)
+    {
+        str_line((void *)file_hd,(void *) str_from_file);
+        printf("1. first line %s \n", str_from_file) ;
+        fclose(file_hd);
+    }
+    else
+    {
+        printf(" there is no such file %s \n",file_name);
+    }
 
     FILE *file_hd2;
     function_pointers_definition functions_def_struct = 
