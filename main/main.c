@@ -98,6 +98,7 @@ int main(int argc ,char *argv[])
     {
         printf(" %s and %s same \n",file_name, text);
     }
+    puts(text);
 
     return 0;
 }
