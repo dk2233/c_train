@@ -20,3 +20,7 @@ extern void sum_to_int ( void *, void* );
 extern  void str_op_find_char ( void * str_in, void * char_in  );
 extern void func_open_file(void * name, void * file_handler);
 extern void str_line(void * file_handler, void * return_str);
+extern 
+void func_open_file_FILE(void * name, FILE ** file_handler);
+extern 
+void read_one_line_from_file(char* name, FILE * file_handler);
