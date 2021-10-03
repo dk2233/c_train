@@ -1,3 +1,5 @@
+#ifndef DIFFERENT_FUNC_H
+#define DIFFERENT_FUNC_H
 /*
  * =====================================================================================
  *
@@ -24,3 +26,5 @@ extern
 void func_open_file_FILE(void * name, FILE ** file_handler);
 extern 
 void read_one_line_from_file(char* name, FILE * file_handler);
+
+#endif
