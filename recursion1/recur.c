@@ -17,13 +17,16 @@ int bitCount(int val) {
    return result;
 }
 
-int bitCount2(int value)
+int bitCountShift(int value)
 {
-    for(unsigned int i = 0U; i<BYTE_SIZE ; i++)
+    int count = 0;
+    while(value > 0)
     {
+        if (value & 1) count++;
 
-    } 
-    return 0;
+        value >>= 1;
+    }
+    return count;
 }
 
 int rec_mul(int input)

@@ -8,6 +8,8 @@
 
 extern int bitCount(int val);
 
+extern int bitCountShift(int val);
+
 extern int power_of_2(int base, int input);
 
 

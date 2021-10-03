@@ -7,6 +7,13 @@
 #include "recur.h"
 #include "defines.h"
 
+
+struct how_many_bits
+{
+    int number;
+    unsigned int count;
+};
+
 int main(int argc ,char *argv[])
 {
     int *tab;
@@ -128,6 +135,16 @@ int main(int argc ,char *argv[])
             tab_numbers[i].power_to,  
             power_of_2(tab_numbers[i].base,tab_numbers[i].power_to));
     }
+
+
+    struct how_many_bits numbers_struct = {0, 0};
+
+    numbers_struct.number = 127;
+    numbers_struct.count = bitCountShift(numbers_struct.number);
+
+
+    numbers_struct.number = 1000;
+    numbers_struct.count = bitCountShift(numbers_struct.number);
 
 
     return 0;
