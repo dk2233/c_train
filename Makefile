@@ -1,13 +1,23 @@
 CC =gcc
 
-INC_FOLDERS=-Iarrays -Istrings -Ifun_pointers -Ifunctions -Istd_lib_object
+INC_FOLDERS=-Iarrays -Istrings -Ifun_pointers -Ifunctions -Idefines -Irecursion1 \
+-Istd_lib_object
 
-vpath %.c main arrays strings functions fun_pointers std_lib_object
-vpath %.h  arrays strings functions fun_pointers std_lib_object
-#VPATH = .:arrays:strings
+vpath %.c main arrays strings functions fun_pointers \
+	recursion1 \
+	std_lib_object
+
+vpath %.h  arrays strings functions fun_pointers defines \
+	recursion1 \
+	std_lib_object
+
 CFLAGS = $(INC_FOLDERS) -c
 #this is important to have all folders with sources defined
-FOLDERS = main arrays strings functions fun_pointers std_lib_object
+FOLDERS = main arrays strings functions fun_pointers defines recursion1   std_lib_object
+
+
+CFLAGS = $(INC_FOLDERS) -c
+#this is important to have all folders with sources defined
 
 #notdir - it returns file without folder in file name
 SRC := $(foreach folder,$(FOLDERS), $(notdir $(wildcard $(folder)/*.c )))
