@@ -20,4 +20,5 @@
 std_object_type std_objects = 
 {
     .compare_strings = &strcmp,
+    .find_string = &strstr,
 };

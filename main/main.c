@@ -155,12 +155,25 @@ int main(int argc ,char *argv[])
     numbers_struct.count = bitCountShift(numbers_struct.number);
 
 
-/* added from std_objects */
+/* added from std_objects o
+ * examples of using function pointers gather into one object */
+    
     char * text = "cscope.files";
     if (0 == std_objects.compare_strings(file_name, text))
     {
         printf(" %s and %s same \n",file_name, text);
     }
+
+    char * ret_loc;
+    char *searched_str = ".fil";
+    ret_loc = std_objects.find_string(file_name,searched_str );
+
+    if (NULL != ret_loc)  
+    {
+
+        printf("found searched string %s in %d\n", searched_str,(unsigned int) ( ret_loc - file_name)); 
+    }
+
     puts(text);
     return 0;
 }

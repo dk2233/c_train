@@ -21,6 +21,7 @@
 typedef struct 
 {
     int (*compare_strings)(const char* , const char *);
+    char * (*find_string)(const char*, const char * );
 
 } std_object_type;
 
