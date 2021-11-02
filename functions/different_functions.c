@@ -78,25 +78,30 @@ void func_open_file_FILE(void * name, void ** file_handler)
 
     *file_hd = fopen((char*)name,"r");
 
-    printf("file handler address %ld\n",(long)file_hd);
-    
-    char char1 = fgetc(*file_hd);
-    printf("line from file: %s\n",(char*)name);
-    while( (char1 != '\n' ) && (char1 != '\0'))   
-    { 
-        char1 = fgetc(*file_hd);
-        printf("%c",char1);
+    if (NULL != *file_hd)
+    {
+        printf("file handler address %ld\n",(long)file_hd);
+        char char1 = fgetc(*file_hd);
+        printf("line from file: %s\n",(char*)name);
+        while( (char1 != '\n' ) && (char1 != '\0'))   
+        { 
+            char1 = fgetc(*file_hd);
+            printf("%c",char1);
+        }
     }
 }
 
 void read_one_line_from_file(char* name, FILE * file_handler)
 {
-    char char1 = fgetc(file_handler);
-    printf("line from file: %s\n",(char*)name);
-    while( (char1 != '\n' ) && (char1 != '\0'))   
-    { 
-        char1 = fgetc(file_handler);
-        printf("%c",char1);
+    if (NULL != file_handler)
+    {
+        char char1 = fgetc(file_handler);
+        printf("line from file: %s\n",(char*)name);
+        while( (char1 != '\n' ) && (char1 != '\0'))   
+        { 
+            char1 = fgetc(file_handler);
+            printf("%c",char1);
+        }
     }
 }
 

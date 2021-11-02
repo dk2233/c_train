@@ -113,10 +113,13 @@ int main(int argc ,char *argv[])
     printf("file handler 2 %ld \n", (long)file_hd2);
 
     str_from_file = calloc(1000U, sizeof(char));
-    str_line((void *)file_hd2,(void *) str_from_file);
-    printf("2. first line %s \n", str_from_file) ;
+    if (file_hd2 != NULL)
+    {
+        str_line((void *)file_hd2,(void *) str_from_file);
+        printf("2. first line %s \n", str_from_file) ;
+        fclose(file_hd2);
+    }
 
-    fclose(file_hd2);
 
     free(str_from_file);
 
