@@ -18,11 +18,21 @@
  * =====================================================================================
  */
 #define HOW_MANY_FUNCTION 3U
+typedef union
+{
+    void (*function_p)(void*, void*);
+
+    void (*function_point_point_p)(void*, void**);
+
+} union_func_pointers_type;
+
 typedef struct
 {
-    void (*function_p)(void* , void * );
+    //void (*function_p)(void* , void * );
+    union_func_pointers_type func_union;
     void* argument1;
-    void* argument2;
+    void* argument2a;
+    void** argument2b;
 } one_func_pointer_def;
 
 

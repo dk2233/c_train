@@ -59,7 +59,7 @@ void func_open_file(void * name, void * file_handler)
     FILE* file_hd;
     file_hd = fopen(name,"r");
 
-    printf("%ld\n",(long*)file_hd);
+    printf("%ld\n",(long)file_hd);
     
     char char1 = fgetc(file_hd);
     printf("line from file: %s\n",(char*)name);
@@ -72,35 +72,42 @@ void func_open_file(void * name, void * file_handler)
 }
 
 
-void func_open_file_FILE(void * name, FILE ** file_handler)
+void func_open_file_FILE(void * name, void ** file_handler)
 {
-    *file_handler = fopen((char*)name,"r");
+    FILE **file_hd = (FILE **)file_handler;
 
-    printf("file handler address %ld\n",(long*)*file_handler);
-    
-    char char1 = fgetc(*file_handler);
-    printf("line from file: %s\n",(char*)name);
-    while( (char1 != '\n' ) && (char1 != '\0'))   
-    { 
-        char1 = fgetc(*file_handler);
-        printf("%c",char1);
+    *file_hd = fopen((char*)name,"r");
+
+    if (NULL != *file_hd)
+    {
+        printf("file handler address %ld\n",(long)file_hd);
+        char char1 = fgetc(*file_hd);
+        printf("line from file: %s\n",(char*)name);
+        while( (char1 != '\n' ) && (char1 != '\0'))   
+        { 
+            char1 = fgetc(*file_hd);
+            printf("%c",char1);
+        }
     }
 }
 
 void read_one_line_from_file(char* name, FILE * file_handler)
 {
-    char char1 = fgetc(file_handler);
-    printf("line from file: %s\n",(char*)name);
-    while( (char1 != '\n' ) && (char1 != '\0'))   
-    { 
-        char1 = fgetc(file_handler);
-        printf("%c",char1);
+    if (NULL != file_handler)
+    {
+        char char1 = fgetc(file_handler);
+        printf("line from file: %s\n",(char*)name);
+        while( (char1 != '\n' ) && (char1 != '\0'))   
+        { 
+            char1 = fgetc(file_handler);
+            printf("%c",char1);
+        }
     }
 }
 
 void str_line(void * file_handler, void * return_str)
 {
-    printf("%ld\n",(long*)file_handler);
+    printf("%ld\n",(long)file_handler);
     int letter = fgetc((FILE*)file_handler);
     char *str_tmp;
     str_tmp = (char *)return_str;
