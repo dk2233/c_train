@@ -50,30 +50,23 @@ str_op_find_char ( void * str_in, void * char_in  )
 
 }		/* -----  end of function str_op_find_char  ----- */
 
-void func_open_file(void * name, void * file_handler)
+
+void func_open_file(char * name, FILE ** file_hd)
+{
+    *file_hd = fopen((char*)name,"r");
+
+    if (NULL == *file_hd)
+    {
+        printf(" file: %s cannot be open\n",(char*)name);
+    }
+}
+
+void func_open_file_FILE(void * name, void ** file_handler)
 {
     /*  this type of function to return FILE pointer
      *  cannot work
      *  we need to use here ** double pointer
      *  to be able to return a pointer to changed pointer to FILE */
-    FILE* file_hd;
-    file_hd = fopen(name,"r");
-
-    printf("%ld\n",(long)file_hd);
-    
-    char char1 = fgetc(file_hd);
-    printf("line from file: %s\n",(char*)name);
-    while(char1 != '\n')
-    {
-        char1 = fgetc(file_hd);
-        printf("%c",char1);
-    }
-    file_handler = (void*) file_hd;
-}
-
-
-void func_open_file_FILE(void * name, void ** file_handler)
-{
     FILE **file_hd = (FILE **)file_handler;
 
     *file_hd = fopen((char*)name,"r");
@@ -120,3 +113,4 @@ void str_line(void * file_handler, void * return_str)
     return_str = (void *)str_tmp;
 
 }
+

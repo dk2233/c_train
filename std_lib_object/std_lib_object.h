@@ -16,12 +16,14 @@
  * =====================================================================================
  */
 #include    <string.h>
+#include "stdio.h"
 
-
+//---------------------------------------------------
 typedef struct 
 {
     int (*compare_strings)(const char* , const char *);
     char * (*find_string)(const char*, const char * );
+    void (*open_file_and_copy_to_str)(char *name, FILE** file_handler);
 
 } std_object_type;
 

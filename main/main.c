@@ -179,6 +179,26 @@ int main(int argc ,char *argv[])
         printf("found searched string %s in %d\n", searched_str,(unsigned int) ( ret_loc - file_name)); 
     }
 
+
+    char *str2 = "Makefile";
+
+    std_objects.open_file_and_copy_to_str(str2, &file_hd);
+
+
+    str_from_file = calloc(1000U, sizeof(char));
+    if (file_hd2 != NULL)
+    {
+        str_line((void *)file_hd2,(void *) str_from_file);
+        printf("first  %s \n", str_from_file) ;
+        fclose(file_hd2);
+    }
+
+    free(str_from_file);
+    fclose(file_hd2);
+
+
+
+
     puts(text);
     return 0;
 }
