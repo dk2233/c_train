@@ -23,6 +23,8 @@ typedef struct
 {
     int (*compare_strings)(const char* , const char *);
     char * (*find_string)(const char*, const char * );
+    void (*open_file)(char *name, FILE** file_handler);
+    long int (*file_size)(FILE* file_handler);
     void (*open_file_and_copy_to_str)(char *name, FILE** file_handler);
 
 } std_object_type;

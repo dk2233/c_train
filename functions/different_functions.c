@@ -114,3 +114,16 @@ void str_line(void * file_handler, void * return_str)
 
 }
 
+long int file_length(FILE *file_hd)
+{
+    long int file_size = 0UL;
+    
+    printf("actual location %ld ",ftell(file_hd));
+
+    if(0 == fseek(file_hd, 0U, SEEK_END ))
+    {
+        file_size = ftell(file_hd);
+
+    }
+    return file_size; 
+}

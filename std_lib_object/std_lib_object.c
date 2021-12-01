@@ -22,5 +22,7 @@ std_object_type std_objects =
 {
     .compare_strings = &strcmp,
     .find_string = &strstr,
+    .open_file = &func_open_file,
+    .file_size = &file_length,
     .open_file_and_copy_to_str = &func_open_file,
 };

@@ -27,4 +27,6 @@ void func_open_file_FILE(void * name, void ** file_handler);
 extern 
 void read_one_line_from_file(char* name, FILE * file_handler);
 
+extern 
+long int file_length(FILE *file_hd);
 #endif
