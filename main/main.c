@@ -182,7 +182,7 @@ int main(int argc ,char *argv[])
 
     char *str2 = "Makefile";
 
-    std_objects.open_file(str2, &file_hd);
+    std_objects.open_file(str2, "r",  &file_hd);
 
     int size_of_file = (int)std_objects.file_size(file_hd);
     printf(" file size of Makefile %d \n",size_of_file) ;

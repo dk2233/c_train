@@ -24,6 +24,8 @@ typedef union
 
     void (*function_point_point_p)(void*, void**);
 
+    void (*function_3_arg_point_point_doublepoint_p)(void*, void*, void**);
+
 } union_func_pointers_type;
 
 typedef struct

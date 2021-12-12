@@ -51,9 +51,10 @@ str_op_find_char ( void * str_in, void * char_in  )
 }		/* -----  end of function str_op_find_char  ----- */
 
 
-void func_open_file(char * name, FILE ** file_hd)
+void func_open_file(char * name, char * mode, FILE ** file_hd)
 {
-    *file_hd = fopen((char*)name,"r");
+    /* open file in given mode */
+    *file_hd = fopen((char*)name,(const char *)mode);
 
     if (NULL == *file_hd)
     {
@@ -61,7 +62,7 @@ void func_open_file(char * name, FILE ** file_hd)
     }
 }
 
-void func_open_file_FILE(void * name, void ** file_handler)
+void func_open_file_FILE(void * name, void ** file_handler )
 {
     /*  this type of function to return FILE pointer
      *  cannot work
@@ -69,7 +70,7 @@ void func_open_file_FILE(void * name, void ** file_handler)
      *  to be able to return a pointer to changed pointer to FILE */
     FILE **file_hd = (FILE **)file_handler;
 
-    *file_hd = fopen((char*)name,"r");
+    *file_hd = fopen((char*)name, "r") ;
 
     if (NULL != *file_hd)
     {
@@ -126,4 +127,9 @@ long int file_length(FILE *file_hd)
 
     }
     return file_size; 
+}
+
+void copy_file_to_array(char *table, FILE *file_handler)
+{
+
 }
