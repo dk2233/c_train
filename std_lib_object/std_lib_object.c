@@ -25,4 +25,5 @@ std_object_type std_objects =
     .open_file = &func_open_file,
     .file_size = &file_length,
     .open_file_and_copy_to_str = &func_open_file,
+    .read_line_from_file = &read_one_line_from_file,
 };

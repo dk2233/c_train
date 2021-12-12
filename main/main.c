@@ -108,12 +108,9 @@ int main(int argc ,char *argv[])
     /*  file_hd2 is pointing to wrong address */
     //func_open_file_FILE((void*)file_name, &file_hd2);
     
-    read_one_line_from_file(file_name, file_hd2);
-
-
     printf("file handler 2 %ld \n", (long)file_hd2);
 
-    str_from_file = calloc(1000U, sizeof(char));
+    str_from_file = calloc(MAX_LINE_SIZE, sizeof(char));
     if (file_hd2 != NULL)
     {
         str_line((void *)file_hd2,(void *) str_from_file);
@@ -187,17 +184,25 @@ int main(int argc ,char *argv[])
     int size_of_file = (int)std_objects.file_size(file_hd);
     printf(" file size of Makefile %d \n",size_of_file) ;
 
-    str_from_file = calloc(1000U, sizeof(char));
+    str_from_file = calloc(MAX_LINE_SIZE, sizeof(char));
     if (file_hd2 != NULL)
     {
+
+        if (std_objects.read_line_from_file(file_hd2, str_from_file) == 0)
+        {
+            printf("second  %s \n", str_from_file) ;
+
+        }
         str_line((void *)file_hd2,(void *) str_from_file);
         printf("first  %s \n", str_from_file) ;
+
+
+
         fclose(file_hd2);
     }
 
     free(str_from_file);
     fclose(file_hd2);
-
 
 
 

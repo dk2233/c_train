@@ -85,18 +85,28 @@ void func_open_file_FILE(void * name, void ** file_handler )
     }
 }
 
-void read_one_line_from_file(char* name, FILE * file_handler)
+int read_one_line_from_file(FILE * file_handler, char * line)
 {
+    int return_value = -1;
     if (NULL != file_handler)
     {
         char char1 = fgetc(file_handler);
-        printf("line from file: %s\n",(char*)name);
-        while( (char1 != '\n' ) && (char1 != '\0'))   
+
+        while((char1 != '\n' ) && (char1 != '\0'))   
         { 
+//            printf("%c",char1);
+
+            *(line++) = char1;
             char1 = fgetc(file_handler);
-            printf("%c",char1);
         }
+
+        return_value = 0;
     }
+    else
+    {
+        printf(" There is no such file as you gave \n");
+    }
+    return return_value;
 }
 
 void str_line(void * file_handler, void * return_str)
@@ -125,7 +135,12 @@ long int file_length(FILE *file_hd)
     {
         file_size = ftell(file_hd);
 
+        printf("actual location %ld ",ftell(file_hd));
+
     }
+    /*  We need to return position to beginnin of file */
+    fseek(file_hd, 0U, SEEK_SET );
+    printf("actual location %ld \n",ftell(file_hd));
     return file_size; 
 }
 

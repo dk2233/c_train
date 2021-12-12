@@ -26,6 +26,7 @@ typedef struct
     void (*open_file)(char *name, char *file_mode,  FILE** file_handler);
     long int (*file_size)(FILE* file_handler);
     void (*open_file_and_copy_to_str)(char *name, char *file_mode, FILE** file_handler);
+    int (*read_line_from_file)(FILE * file_handler, char * read_line);
 
 } std_object_type;
 
