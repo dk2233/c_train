@@ -184,19 +184,20 @@ int main(int argc,char *argv[])
         printf("found searched string %s in %d\n", searched_str,(unsigned int) ( ret_loc - file_name));
     }
 
-
+/*
+ *"--------------------------------------------------- 
+ */
     char *str2 = "Makefile";
 
     std_objects.open_file(str2, "r",  &file_hd);
 
     int size_of_file = (int)std_objects.file_size(file_hd);
-    printf(" file size of Makefile %d \n",size_of_file) ;
+    printf("file size of Makefile %d \n",size_of_file) ;
 
     str_from_file = calloc(MAX_LINE_SIZE, sizeof(char));
-    if (file_hd2 != NULL)
+    if ((file_hd != NULL) && (str_from_file != NULL))
     {
-
-        if (std_objects.read_line_from_file(file_hd2, str_from_file) == 0)
+        if (std_objects.read_line_from_file(file_hd, str_from_file) == 0)
         {
             printf("second  %s \n", str_from_file) ;
 
@@ -204,13 +205,38 @@ int main(int argc,char *argv[])
         str_line((void *)file_hd2,(void *) str_from_file);
         printf("first  %s \n", str_from_file) ;
 
-
-
-        fclose(file_hd2);
+        fclose(file_hd);
     }
 
     free(str_from_file);
-    fclose(file_hd2);
+
+
+
+    //"---------------------------------------------------
+    char *str3 = "find_linux.sh";
+    std_objects.open_file(str3, "r",  &file_hd);
+
+    if (file_hd != NULL)
+    {
+        size_of_file = (int)std_objects.file_size(file_hd);
+        printf(" file size of %s %d \n",str3,size_of_file) ;
+        char *tab_str = calloc(size_of_file, sizeof(char));
+
+        if (
+                (tab_str != NULL) &&
+                (0 == std_objects.copy_file_to_string(file_hd, tab_str ))
+           )
+        {
+            printf("data taken from file %s: \n%s\n", str3, tab_str);
+        }
+        free(tab_str);
+        fclose(file_hd);
+    }
+
+
+
+
+
 
 
 
