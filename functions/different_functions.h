@@ -29,4 +29,6 @@ int read_one_line_from_file(FILE * file_handler, char* line);
 
 extern 
 long int file_length(FILE *file_hd);
+extern 
+int whole_file_to_one_str( FILE *file_handler, char *table );
 #endif

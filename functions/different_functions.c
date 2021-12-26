@@ -90,15 +90,13 @@ int read_one_line_from_file(FILE * file_handler, char * line)
     int return_value = -1;
     if (NULL != file_handler)
     {
-        char char1 = fgetc(file_handler);
-
-        while((char1 != '\n' ) && (char1 != '\0'))   
+        char char1;
+        do
         { 
-//            printf("%c",char1);
-
-            *(line++) = char1;
             char1 = fgetc(file_handler);
+            *(line++) = char1;
         }
+        while((char1 != '\n' ) && (char1 != '\0'));   
 
         return_value = 0;
     }
@@ -111,7 +109,7 @@ int read_one_line_from_file(FILE * file_handler, char * line)
 
 void str_line(void * file_handler, void * return_str)
 {
-    printf("%ld\n",(long)file_handler);
+    printf("file handler id %ld\n",(long)file_handler);
     int letter = fgetc((FILE*)file_handler);
     char *str_tmp;
     str_tmp = (char *)return_str;
@@ -128,23 +126,51 @@ void str_line(void * file_handler, void * return_str)
 long int file_length(FILE *file_hd)
 {
     long int file_size = 0UL;
-    
-    printf("actual location %ld ",ftell(file_hd));
 
-    if(0 == fseek(file_hd, 0U, SEEK_END ))
+    if (file_hd != NULL)
     {
-        file_size = ftell(file_hd);
-
         printf("actual location %ld ",ftell(file_hd));
 
+        if(0 == fseek(file_hd, 0U, SEEK_END ))
+        {
+
+            file_size = ftell(file_hd);
+
+            printf("actual location %ld ",ftell(file_hd));
+
+        }
+        /*  We need to return position to beginnin of file */
+        fseek(file_hd, 0U, SEEK_SET );
+        printf("actual location %ld \n",ftell(file_hd));
     }
-    /*  We need to return position to beginnin of file */
-    fseek(file_hd, 0U, SEEK_SET );
-    printf("actual location %ld \n",ftell(file_hd));
     return file_size; 
 }
 
-void copy_file_to_array(char *table, FILE *file_handler)
+int whole_file_to_one_str( FILE *file_handler, char *table )
 {
+    int is_it_ok = 0;
+
+    if (file_handler != NULL)
+    {
+
+        char character;
+        do 
+        {
+            character = fgetc(file_handler);
+            if ( (character != '\0') &&(character >-1 ) )
+            {
+            *(table++) = character;
+            }
+        }
+        while( (character != '\0') &&(character >-1 ) );
+
+    }
+    else
+    {
+    is_it_ok = 1;
+    }
+
+    return is_it_ok;
+
 
 }
