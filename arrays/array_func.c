@@ -1,4 +1,4 @@
-#include "array_func.h"	
+#include "array_func.h"
 #include "stdlib.h"
 #include "stdio.h"
 
@@ -7,7 +7,9 @@ unsigned int * array_p;
 
 # define VAR_A   10U
 
-uint8_t arra[][4] = { 
+
+uint8_t arra[][4] =
+{
     { 0,3},
     {3,5,6, 67},
     {1}
@@ -16,7 +18,7 @@ uint8_t arra[][4] = {
 
 int * array_parse(int nr_element)
 {
-    /*  
+    /*
      *  is it possible to return internal array_a
      *  and have access to it after leaving this function?*/
     static int *array_a;
@@ -24,7 +26,7 @@ int * array_parse(int nr_element)
 
     array_a =malloc(nr_element* sizeof(int));
 
-    for(i=0;i<nr_element ; i++)
+    for(i=0; i<nr_element; i++)
     {
         array_a[i]=2+i;
     }
@@ -34,7 +36,7 @@ int * array_parse(int nr_element)
 
 int check_possibility_of_not_defining_size(void)
 {
-    /*check if when no explicitly define size of array 
+    /*check if when no explicitly define size of array
      * it still works fine
      * however it may depend on used compiler
      * on gcc it is fine
@@ -49,8 +51,18 @@ int check_possibility_of_not_defining_size(void)
             printf("%d ",arra[iter1][iter2]);
         }
         printf("\n");
-    } 
+    }
     return 0;
+}
+
+void check_array_argument(int tab[FUNCTION_ARGUMENT])
+{
+    int iter = 0;
+    for(; iter < FUNCTION_ARGUMENT; iter++)
+    {
+        printf("tab[%d] %d\n", iter, tab[iter]);
+    }
+
 }
 
 

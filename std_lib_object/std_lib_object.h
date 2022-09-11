@@ -3,15 +3,15 @@
  *
  *       Filename:  std_lib_object.h
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  09/19/21 16:02:38
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  YOUR NAME (), 
- *   Organization:  
+ *         Author:  YOUR NAME (),
+ *   Organization:
  *
  * =====================================================================================
  */
@@ -19,9 +19,9 @@
 #include "stdio.h"
 
 //---------------------------------------------------
-typedef struct 
+typedef struct
 {
-    int (*compare_strings)(const char* , const char *);
+    int (*compare_strings)(const char*, const char *);
     char * (*find_string)(const char*, const char * );
     void (*open_file)(char *name, char *file_mode,  FILE** file_handler);
     long int (*file_size)(FILE* file_handler);

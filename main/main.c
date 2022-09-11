@@ -9,13 +9,19 @@
 #include "std_lib_object.h"
 
 
+static int tab_test[FUNCTION_ARGUMENT] =
+{
+    1, 102, 3, 5, 78, 200, 56, 89, 99, 0
+
+};
+
 struct how_many_bits
 {
     int number;
     unsigned int count;
 };
 
-int main(int argc ,char *argv[])
+int main(int argc,char *argv[])
 {
     int *tab;
     char string_to_change[40];
@@ -31,7 +37,7 @@ int main(int argc ,char *argv[])
 
             tab =array_parse(10);
 
-            for(;i<nr;i++)
+            for(; i<nr; i++)
             {
                 printf("nr %d %d\n",i,tab[i]);
             }
@@ -52,7 +58,9 @@ int main(int argc ,char *argv[])
 
     check_possibility_of_not_defining_size();
 
-    call_one_function_pointer(&sum_to_int, 3 , 4);
+    check_array_argument(tab_test);
+
+    call_one_function_pointer(&sum_to_int, 3, 4);
 
     int a =2;
     int b = 5;
@@ -61,7 +69,7 @@ int main(int argc ,char *argv[])
 
     /*  opening file in c */
     char *file_name = "cscope.files";
-    FILE *file_hd; 
+    FILE *file_hd;
     file_hd = fopen(file_name,"r");
 
     char *str_from_file = calloc(1000U, sizeof(char));
@@ -77,17 +85,17 @@ int main(int argc ,char *argv[])
     }
 
     FILE *file_hd2;
-    function_pointers_definition functions_def_struct = 
+    function_pointers_definition functions_def_struct =
     {
         .elements_number = HOW_MANY_FUNCTION,
-        .func_array[0] = 
+        .func_array[0] =
         {
             &sum_to_int,
-            (void *)&a ,
+            (void *)&a,
             (void *)&b,
-                NULL,
+            NULL,
         },
-        .func_array[1] = 
+        .func_array[1] =
         {
             &str_op_find_char,
             (void * )str1,
@@ -97,17 +105,17 @@ int main(int argc ,char *argv[])
         /*  this method of using pointer to return File will not work
          *  every time we open file we also change structure address
          *  so we should use here ** pointer that can be changed were it is pointing to */
-        .func_array[2] ={ .func_union.function_point_point_p =  &func_open_file_FILE,  (void *)file_name, NULL,  (void **)&file_hd2}, 
+        .func_array[2] ={ .func_union.function_point_point_p =  &func_open_file_FILE,  (void *)file_name, NULL,  (void **)&file_hd2},
 
     };
 
     call_all_function( &functions_def_struct);
 
     printf("file handler bef  wrong one %ld \n", (long)file_hd2);
-/*      THIS_DOES_NOT_WORK read_one_line_from_file(file_name, file_hd2);*/
+    /*      THIS_DOES_NOT_WORK read_one_line_from_file(file_name, file_hd2);*/
     /*  file_hd2 is pointing to wrong address */
     //func_open_file_FILE((void*)file_name, &file_hd2);
-    
+
     printf("file handler 2 %ld \n", (long)file_hd2);
 
     str_from_file = calloc(MAX_LINE_SIZE, sizeof(char));
@@ -122,14 +130,14 @@ int main(int argc ,char *argv[])
     free(str_from_file);
 
     printf(" ones in %d is %d\n            ", nr, bitCount(nr));
-    
-    typedef struct  
+
+    typedef struct
     {
         int base;
         int power_to;
-    }type_numbers;
+    } type_numbers;
 
-    type_numbers tab_numbers[] = 
+    type_numbers tab_numbers[] =
     {
         { 2, 5},
         {2, 3},
@@ -140,10 +148,10 @@ int main(int argc ,char *argv[])
     for ( unsigned char i = 0; i < (sizeof(tab_numbers)/ sizeof( type_numbers)); i++)
     {
 
-    printf(" %d to the power  %d is %d\n ", 
-            tab_numbers[i].base ,
-            tab_numbers[i].power_to,  
-            power_of_2(tab_numbers[i].base,tab_numbers[i].power_to));
+        printf(" %d to the power  %d is %d\n ",
+               tab_numbers[i].base,
+               tab_numbers[i].power_to,
+               power_of_2(tab_numbers[i].base,tab_numbers[i].power_to));
     }
 
 
@@ -157,9 +165,9 @@ int main(int argc ,char *argv[])
     numbers_struct.count = bitCountShift(numbers_struct.number);
 
 
-/* added from std_objects o
- * examples of using function pointers gather into one object */
-    
+    /* added from std_objects o
+     * examples of using function pointers gather into one object */
+
     char * text = "cscope.files";
     if (0 == std_objects.compare_strings(file_name, text))
     {
@@ -170,10 +178,10 @@ int main(int argc ,char *argv[])
     char *searched_str = ".fil";
     ret_loc = std_objects.find_string(file_name,searched_str );
 
-    if (NULL != ret_loc)  
+    if (NULL != ret_loc)
     {
 
-        printf("found searched string %s in %d\n", searched_str,(unsigned int) ( ret_loc - file_name)); 
+        printf("found searched string %s in %d\n", searched_str,(unsigned int) ( ret_loc - file_name));
     }
 
 

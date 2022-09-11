@@ -5,9 +5,12 @@
 
 #define ARRAY_SIZE	4U
 
+#define FUNCTION_ARGUMENT 10U
 
 extern int * array_parse(int nr_element);
 
-int check_possibility_of_not_defining_size(void);
+extern int check_possibility_of_not_defining_size(void);
+
+extern void check_array_argument(int tab[FUNCTION_ARGUMENT]);
 
 #endif
