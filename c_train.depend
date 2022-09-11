@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1662923595 source:c:\users\daniel.kucharski\documents\cprogramming\c_train\arrays\array_func.c
+	"array_func.h"
+	"stdlib.h"
+	"stdio.h"
+
+1662923599 c:\users\daniel.kucharski\documents\cprogramming\c_train\arrays\array_func.h
+	<stdint.h>
+
+1662918432 source:c:\users\daniel.kucharski\documents\cprogramming\c_train\fun_pointers\func_pointers.c
+	<stdlib.h>
+	"func_pointers.h"
+	"stdio.h"
+
+1662842359 c:\users\daniel.kucharski\documents\cprogramming\c_train\fun_pointers\func_pointers.h
+
+1662842359 source:c:\users\daniel.kucharski\documents\cprogramming\c_train\functions\different_functions.c
+	<stdlib.h>
+	<stdio.h>
+
+1662842359 source:c:\users\daniel.kucharski\documents\cprogramming\c_train\recursion1\recur.c
+	"recur.h"
+
+1662842359 c:\users\daniel.kucharski\documents\cprogramming\c_train\recursion1\recur.h
+
+1662842359 source:c:\users\daniel.kucharski\documents\cprogramming\c_train\strings\str_change.c
+	<string.h>
+	<stdio.h>
+
+1662923649 source:c:\users\daniel.kucharski\documents\cprogramming\c_train\main\main.c
+	<stdio.h>
+	<stdlib.h>
+	"array_func.h"
+	"str_change.h"
+	"func_pointers.h"
+	"different_functions.h"
+	"recur.h"
+	"defines.h"
+	"std_lib_object.h"
+
+1662842359 c:\users\daniel.kucharski\documents\cprogramming\c_train\strings\str_change.h
+
+1662842359 c:\users\daniel.kucharski\documents\cprogramming\c_train\functions\different_functions.h
+
+1662842359 c:\users\daniel.kucharski\documents\cprogramming\c_train\defines\defines.h
+
+1662918228 c:\users\daniel.kucharski\documents\cprogramming\c_train\std_lib_object\std_lib_object.h
+	<string.h>
+	"stdio.h"
+
+1662842359 source:c:\users\daniel.kucharski\documents\cprogramming\c_train\std_lib_object\std_lib_object.c
+	"std_lib_object.h"
+	"different_functions.h"
+

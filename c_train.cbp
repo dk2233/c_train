@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="c_train" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/c_train" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="arrays" />
+					<Add directory="defines" />
+					<Add directory="fun_pointers" />
+					<Add directory="functions" />
+					<Add directory="recursion1" />
+					<Add directory="std_lib_object" />
+					<Add directory="strings" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/c_train" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="arrays" />
+					<Add directory="defines" />
+					<Add directory="fun_pointers" />
+					<Add directory="functions" />
+					<Add directory="recursion1" />
+					<Add directory="std_lib_object" />
+					<Add directory="strings" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="arrays" />
+			<Add directory="defines" />
+			<Add directory="fun_pointers" />
+			<Add directory="functions" />
+			<Add directory="recursion1" />
+			<Add directory="std_lib_object" />
+			<Add directory="strings" />
+		</Compiler>
+		<Unit filename="arrays/array_func.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="arrays/array_func.h" />
+		<Unit filename="defines/defines.h" />
+		<Unit filename="fun_pointers/func_pointers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fun_pointers/func_pointers.h" />
+		<Unit filename="functions/different_functions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="functions/different_functions.h" />
+		<Unit filename="main/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="recursion1/recur.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="recursion1/recur.h" />
+		<Unit filename="std_lib_object/std_lib_object.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="std_lib_object/std_lib_object.h" />
+		<Unit filename="strings/str_change.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="strings/str_change.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
