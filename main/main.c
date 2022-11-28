@@ -52,6 +52,9 @@ int main(int argc,char *argv[])
 
     scanf("%[^\n]s",string_to_change);
 
+    printf("check_type of string array %s \n", check_type( string_to_change));
+    printf("check_type of variable i is %s \n", check_type( i));
+
     string_letter_replace(string_to_change);
     printf("%s\n",string_to_change);
 
