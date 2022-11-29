@@ -2,6 +2,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 
+
 unsigned int tab_a[ARRAY_SIZE];
 unsigned int * array_p;
 
@@ -62,6 +63,35 @@ void check_array_argument(int tab[FUNCTION_ARGUMENT])
     {
         printf("tab[%d] %d\n", iter, tab[iter]);
     }
+
+}
+/*
+this function allocates array and returns its pointer **
+*/
+bool create_array(void ** tab, int size_of_array, size_t size_of_one_element )
+{
+    bool state = false;
+
+    if ((*tab == NULL) && (size_of_array > 0))
+    {
+        *tab = calloc(size_of_array, size_of_one_element);
+        if (*tab != NULL)
+        {
+            printf("array allocated %p \n", *tab);
+            state = true;
+        }
+        else
+        {
+            printf("error\n");
+            state = false;
+        }
+    }
+    else
+    {
+    free(*tab);
+    }
+
+    return state;
 
 }
 

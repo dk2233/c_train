@@ -11,6 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="10" />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="arrays" />
@@ -44,6 +45,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c17" />
 			<Add directory="arrays" />
 			<Add directory="defines" />
 			<Add directory="fun_pointers" />
@@ -51,6 +53,7 @@
 			<Add directory="recursion1" />
 			<Add directory="std_lib_object" />
 			<Add directory="strings" />
+			<Add directory="/usr/include" />
 		</Compiler>
 		<Unit filename="arrays/array_func.c">
 			<Option compilerVar="CC" />
@@ -81,6 +84,11 @@
 		</Unit>
 		<Unit filename="strings/str_change.h" />
 		<Extensions>
+			<debugger>
+				<remote_debugging target="Debug">
+					<options conn_type="0" additional_shell_cmds_before="10" />
+				</remote_debugging>
+			</debugger>
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>

@@ -27,6 +27,7 @@ int main(int argc,char *argv[])
     char string_to_change[40];
     uint8_t i=0;
     int nr;
+    int * new_tab;
 
     if (1<argc)
     {
@@ -35,11 +36,16 @@ int main(int argc,char *argv[])
         {
             printf("array size %d \n",nr);
 
-            tab =array_parse(10);
+            tab =array_parse(nr);
 
             for(; i<nr; i++)
             {
                 printf("nr %d %d\n",i,tab[i]);
+            }
+
+            if (create_array( (void **) &new_tab, nr, sizeof(int)  ) == true)
+            {
+                new_tab[0] = 10;
             }
         }
     }
@@ -188,7 +194,7 @@ int main(int argc,char *argv[])
     }
 
 /*
- *"--------------------------------------------------- 
+ *"---------------------------------------------------
  */
     char *str2 = "Makefile";
 
@@ -233,6 +239,7 @@ int main(int argc,char *argv[])
             printf("data taken from file %s: \n%s\n", str3, tab_str);
         }
         free(tab_str);
+        create_array((void **)&new_tab, 0, 0);
         fclose(file_hd);
     }
 

@@ -4,6 +4,8 @@
 	"stdlib.h"
 	"stdio.h"
 
+1662923599 
+
 1662923599 c:\users\daniel.kucharski\documents\cprogramming\c_train\arrays\array_func.h
 	<stdint.h>
 
@@ -38,6 +40,8 @@
 	"defines.h"
 	"std_lib_object.h"
 
+1662923649 bject.h"
+
 1662842359 c:\users\daniel.kucharski\documents\cprogramming\c_train\strings\str_change.h
 
 1662842359 c:\users\daniel.kucharski\documents\cprogramming\c_train\functions\different_functions.h
@@ -51,4 +55,126 @@
 1662842359 source:c:\users\daniel.kucharski\documents\cprogramming\c_train\std_lib_object\std_lib_object.c
 	"std_lib_object.h"
 	"different_functions.h"
+
+1662842359 _functions.h"
+
+1667325378 source:/home/dan/Dokumenty/c/c_train/fun_pointers/func_pointers.c
+	<stdlib.h>
+	"func_pointers.h"
+	"stdio.h"
+
+1649294681 /usr/include/stdlib.h
+	<bits/libc-header-start.h>
+	<stddef.h>
+	<bits/waitflags.h>
+	<bits/waitstatus.h>
+	<bits/floatn.h>
+	<bits/types/locale_t.h>
+	<sys/types.h>
+	<alloca.h>
+	<bits/stdlib-bsearch.h>
+	<bits/stdlib-float.h>
+	<bits/stdlib.h>
+	<bits/stdlib-ldbl.h>
+
+1649294681 /usr/include/alloca.h
+	<features.h>
+	<stddef.h>
+
+1649294681 /usr/include/features.h
+	<stdc-predef.h>
+	<sys/cdefs.h>
+	<gnu/stubs.h>
+
+1649294681 /usr/include/stdc-predef.h
+
+1640477071 /home/dan/Dokumenty/c/c_train/fun_pointers/func_pointers.h
+
+1649294681 /usr/include/stdio.h
+	<bits/libc-header-start.h>
+	<stddef.h>
+	<stdarg.h>
+	<bits/types.h>
+	<bits/types/__fpos_t.h>
+	<bits/types/__fpos64_t.h>
+	<bits/types/__FILE.h>
+	<bits/types/FILE.h>
+	<bits/types/struct_FILE.h>
+	<bits/types/cookie_io_functions_t.h>
+	<stdarg.h>
+	<bits/stdio_lim.h>
+	<bits/sys_errlist.h>
+	<bits/getopt_posix.h>
+	<bits/stdio.h>
+	<bits/stdio2.h>
+	<bits/stdio-ldbl.h>
+
+1667325786 source:/home/dan/Dokumenty/c/c_train/functions/different_functions.c
+	<stdlib.h>
+	<stdio.h>
+
+1635582010 source:/home/dan/Dokumenty/c/c_train/recursion1/recur.c
+	"recur.h"
+
+1635582010 /home/dan/Dokumenty/c/c_train/recursion1/recur.h
+
+1667325786 source:/home/dan/Dokumenty/c/c_train/std_lib_object/std_lib_object.c
+	"std_lib_object.h"
+	"different_functions.h"
+
+1667325786 /home/dan/Dokumenty/c/c_train/std_lib_object/std_lib_object.h
+	<string.h>
+	"stdio.h"
+
+1649294681 /usr/include/string.h
+	<bits/libc-header-start.h>
+	<stddef.h>
+	<bits/types/locale_t.h>
+	<strings.h>
+	<bits/string_fortified.h>
+
+1649294681 /usr/include/strings.h
+	<features.h>
+	<stddef.h>
+	<bits/types/locale_t.h>
+	<bits/strings_fortified.h>
+
+1667325786 /home/dan/Dokumenty/c/c_train/functions/different_functions.h
+
+1635582010 source:/home/dan/Dokumenty/c/c_train/strings/str_change.c
+	<string.h>
+	<stdio.h>
+
+1669682627 source:/home/dan/Dokumenty/c/c_train/arrays/array_func.c
+	"array_func.h"
+	"stdlib.h"
+	"stdio.h"
+
+1669681077 /home/dan/Dokumenty/c/c_train/arrays/array_func.h
+	<stdint.h>
+	"stdbool.h"
+	"stddef.h"
+
+1649294681 /usr/include/stdint.h
+	<bits/libc-header-start.h>
+	<bits/types.h>
+	<bits/wchar.h>
+	<bits/wordsize.h>
+	<bits/stdint-intn.h>
+	<bits/stdint-uintn.h>
+
+1669682658 source:/home/dan/Dokumenty/c/c_train/main/main.c
+	<stdio.h>
+	<stdlib.h>
+	"array_func.h"
+	"str_change.h"
+	"func_pointers.h"
+	"different_functions.h"
+	"recur.h"
+	"defines.h"
+	"std_lib_object.h"
+
+1635582010 /home/dan/Dokumenty/c/c_train/strings/str_change.h
+
+1669671201 /home/dan/Dokumenty/c/c_train/defines/defines.h
 
