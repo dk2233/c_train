@@ -17,6 +17,7 @@
  *
  * =====================================================================================
  */
+#include <stdio.h>
 
 extern void sum_to_int ( void *, void* );
 extern  void str_op_find_char ( void * str_in, void * char_in  );

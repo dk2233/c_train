@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdio.h>
+#include "func_pointers.h"
 
 typedef struct{
     char searched;
