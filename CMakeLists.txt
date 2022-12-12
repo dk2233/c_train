@@ -8,6 +8,7 @@ set(CMAKE_C_EXTENSIONS OFF)
 
 set(CMAKE_CXX_COMPILER gcc)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_BUILD_TYPE Debug)
 
 include(GNUInstallDirs)
 
@@ -17,8 +18,9 @@ include_directories(
     fun_pointers 
     functions 
     recursion1 
-    std_lib_object 
+    std_lib_object     
     strings 
+    structs
     )
 
 #add_subdirectory(arrays)
@@ -31,7 +33,8 @@ add_executable(ctests
     main/main.c
     recursion1/recur.c
     std_lib_object/std_lib_object.c
-    strings/str_change.c )
+    strings/str_change.c
+    structs/structs.c)
     
 #target_include_directories(ctests 
 #    $(CMAKE_CURRENT_LIST_DIR))

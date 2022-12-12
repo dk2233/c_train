@@ -7,6 +7,7 @@
 #include "recur.h"
 #include "defines.h"
 #include "std_lib_object.h"
+#include "structs.h"
 
 
 static int tab_test[FUNCTION_ARGUMENT] =
@@ -120,12 +121,12 @@ int main(int argc,char *argv[])
 
     call_all_function( &functions_def_struct);
 
-    printf("file handler bef  wrong one %ld \n", (long)file_hd2);
+    printf("file handler bef  wrong one %p \n", file_hd2);
     /*      THIS_DOES_NOT_WORK read_one_line_from_file(file_name, file_hd2);*/
     /*  file_hd2 is pointing to wrong address */
     //func_open_file_FILE((void*)file_name, &file_hd2);
 
-    printf("file handler 2 %ld \n", (long)file_hd2);
+    printf("file handler 2 %p \n", file_hd2);
 
     str_from_file = calloc(MAX_LINE_SIZE, sizeof(char));
     if (file_hd2 != NULL)
@@ -239,12 +240,14 @@ int main(int argc,char *argv[])
             printf("data taken from file %s: \n%s\n", str3, tab_str);
         }
         free(tab_str);
-        create_array((void **)&new_tab, 0, 0);
         fclose(file_hd);
     }
 
 
 
+
+
+    define_Point_struct();
 
 
 
