@@ -250,8 +250,17 @@ int main(int argc,char *argv[])
     define_Point_struct();
 
 
+    Employee * arrayEmp;
+    int nr1 = 3;
+    arrayEmp = define_employee_array(nr1);
 
+    show_employee_array(nr1, arrayEmp);
 
+    Employee * arrayEmp2;
+    int nr2 = 2;
+    define_employee_array2(nr2, &arrayEmp2);
+
+    show_employee_array(nr2, arrayEmp2);
 
     puts(text);
     return 0;

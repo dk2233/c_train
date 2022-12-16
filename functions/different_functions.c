@@ -74,7 +74,7 @@ void func_open_file_FILE(void * name, void ** file_handler )
 
     if (NULL != *file_hd)
     {
-        printf("file handler address %ld\n",(long)file_hd);
+        printf("file handler address %p\n",file_hd);
         char char1 = fgetc(*file_hd);
         printf("line from file: %s\n",(char*)name);
         while( (char1 != '\n' ) && (char1 != '\0'))   
@@ -109,7 +109,7 @@ int read_one_line_from_file(FILE * file_handler, char * line)
 
 void str_line(void * file_handler, void * return_str)
 {
-    printf("file handler id %ld\n",(long)file_handler);
+    printf("file handler id %p\n",file_handler);
     int letter = fgetc((FILE*)file_handler);
     char *str_tmp;
     str_tmp = (char *)return_str;
