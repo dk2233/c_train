@@ -109,18 +109,20 @@ int read_one_line_from_file(FILE * file_handler, char * line)
 
 void str_line(void * file_handler, void * return_str)
 {
-    printf("file handler id %p\n",file_handler);
-    int letter = fgetc((FILE*)file_handler);
-    char *str_tmp;
-    str_tmp = (char *)return_str;
-    while((letter != '\n') && (letter != '\0') && (letter > -1) )
+    if (file_handler != NULL)
     {
-        *(str_tmp++) = letter;
-        letter = fgetc((FILE*) file_handler);
+        printf("file handler id %p\n",file_handler);
+        int letter = fgetc((FILE*)file_handler);
+        char *str_tmp;
+        str_tmp = (char *)return_str;
+        while((letter != '\n') && (letter != '\0') && (letter > -1) )
+        {
+            *(str_tmp++) = letter;
+            letter = fgetc((FILE*) file_handler);
+        }
+
+        return_str = (void *)str_tmp;
     }
-
-    return_str = (void *)str_tmp;
-
 }
 
 long int file_length(FILE *file_hd)
