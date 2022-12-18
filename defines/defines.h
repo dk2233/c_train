@@ -1,6 +1,7 @@
 #ifndef DEFINES_H
 #define DEFINES_H
 
+#include "stdint.h"
 
 
 #define THIS_DOES_NOT_WORK  

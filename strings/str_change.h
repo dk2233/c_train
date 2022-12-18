@@ -7,6 +7,6 @@
  */
 
 
-void string_letter_replace(char *input_string);
-
+extern void string_letter_replace(char *input_string);
+extern void string_different_tests(void);
 #endif

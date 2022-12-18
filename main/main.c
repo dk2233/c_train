@@ -25,10 +25,15 @@ struct how_many_bits
 int main(int argc,char *argv[])
 {
     int *tab;
-    char string_to_change[40];
     uint8_t i=0;
     int nr;
     int * new_tab;
+    char a1, a2, a3;
+
+    a1 = 1;
+    a2 = 2;
+    a3 = 3;
+
 
     if (1<argc)
     {
@@ -55,20 +60,23 @@ int main(int argc,char *argv[])
         printf("Give as argument number of array items\n");
         nr = 10U;
     }
-    printf(" give string:");
 
-    scanf("%[^\n]s",string_to_change);
+    /*
+    strings tests
+    */
 
-    printf("check_type of string array %s \n", check_type( string_to_change));
-    printf("check_type of variable i is %s \n", check_type( i));
+    string_different_tests();
 
-    string_letter_replace(string_to_change);
-    printf("%s\n",string_to_change);
-
-
+    /*
+    arrays tests
+    */
     check_possibility_of_not_defining_size();
 
     check_array_argument(tab_test);
+
+    /*
+    function pointers
+    */
 
     call_one_function_pointer(&sum_to_int, 3, 4);
 
@@ -246,6 +254,10 @@ int main(int argc,char *argv[])
 
 
 
+    /*
+    structs / unions
+
+    */
 
     define_Point_struct();
 

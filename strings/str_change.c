@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "func_pointers.h"
+#include "defines.h"
 
 typedef struct{
     char searched;
@@ -45,3 +46,20 @@ void string_letter_replace(char *input_string)
     }
 }
 
+
+void string_different_tests(void)
+{
+    char string_to_change[40];
+    uint8_t i = 0 ;
+
+    printf(" give string:");
+
+    scanf("%[^\n]s",string_to_change);
+
+    printf("check_type of string array %s \n", check_type( string_to_change));
+    printf("check_type of variable i is %s \n", check_type( i));
+
+    string_letter_replace(string_to_change);
+    printf("%s\n",string_to_change);
+
+}
