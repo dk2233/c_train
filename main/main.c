@@ -23,7 +23,7 @@ int main(int argc,char *argv[])
     int *tab;
     uint8_t i=0;
     int nr;
-    int * new_tab;
+    int * new_tab = NULL;
     char a1, a2, a3;
 
     //to check variables alignement
@@ -60,43 +60,87 @@ int main(int argc,char *argv[])
     }
 
     /*
-    strings tests
-    */
+    menu of tests*/
 
-    string_different_tests();
+    char option[5];
+    do
+    {
+        printf("************************************************\n");
+        printf("> s\\S strings \n");
+        printf("> a\\A arrays \n");
+        printf("> b\\B structs \n");
+        printf("> f\\F function pointers \n");
+        printf("> g\\G files \n");
+        printf("> r\\R recursion \n");
+        printf("> q\\Q EXIT \n");
+        // option = getchar();
+        scanf("%s", option);
+        //there is still an enter pressed
+        getchar();
 
-    /*
-    arrays tests
-    */
-    check_possibility_of_not_defining_size();
+        switch (option[0])
+        {
+        case 'q':
+        case 'Q':
+            /* code */
+            break;
+        case 's':
+        case 'S':
+            /*
+            strings tests
+            */
+            string_different_tests();
+            break;
 
-    check_array_argument(tab_test);
+        case 'a':
+        case 'A':
+            /*
+            arrays tests
+            */
+            check_possibility_of_not_defining_size();
 
-    /*
-    function pointers
-    */
+            check_array_argument(tab_test);
+            break;
 
-    call_one_function_pointer(&sum_to_int, 3, 4);
+        case 'b':
+        case 'B':
+            /*
+            structs / unions
+            */
+            struct_playground();
+            break;
+        case 'f':
+        case 'F':
+            /*
+            function pointers
+            */
+            call_one_function_pointer(&sum_to_int, 3, 4);
+            function_pointer_playground();
+            break;
+        case 'g':
+        case 'G':    
+            files_playground();
+            break;
 
-    function_pointer_playground();
+        case 'r':
+        case 'R':    
+            recursion_playground();
+            break;
 
-    files_playground();
+        default:
+            break;
+        }
+
+
+        /* code */
+    } while (option[0] != 'q');
+    
+
 
 
 /*
  *"---------------------------------------------------
  */
-
-
-
-    /*
-    structs / unions
-
-    */
-
-    struct_playground();
-
-    recursion_playground();
 
     return 0;
 }

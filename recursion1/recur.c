@@ -85,6 +85,7 @@ void recursion_playground(void)
 
     };
     int nr;
+    printf("podaj liczbe:");
     scanf("%d", &nr);
     printf(" ones in %d is %d\n            ", nr, bitCount(nr));
 
