@@ -17,11 +17,6 @@ static int tab_test[FUNCTION_ARGUMENT] =
 
 };
 
-struct how_many_bits
-{
-    int number;
-    unsigned int count;
-};
 
 int main(int argc,char *argv[])
 {
@@ -31,6 +26,8 @@ int main(int argc,char *argv[])
     int * new_tab;
     char a1, a2, a3;
 
+    //to check variables alignement
+    //and their address
     a1 = 1;
     a2 = 2;
     a3 = 3;
@@ -85,41 +82,6 @@ int main(int argc,char *argv[])
 
     files_playground();
 
-    printf(" ones in %d is %d\n            ", nr, bitCount(nr));
-
-    typedef struct
-    {
-        int base;
-        int power_to;
-    } type_numbers;
-
-    type_numbers tab_numbers[] =
-    {
-        { 2, 5},
-        {2, 3},
-        {2, 8}
-
-    };
-
-    for ( unsigned char i = 0; i < (sizeof(tab_numbers)/ sizeof( type_numbers)); i++)
-    {
-
-        printf(" %d to the power  %d is %d\n ",
-               tab_numbers[i].base,
-               tab_numbers[i].power_to,
-               power_of_2(tab_numbers[i].base,tab_numbers[i].power_to));
-    }
-
-
-    struct how_many_bits numbers_struct = {0, 0};
-
-    numbers_struct.number = 127;
-    numbers_struct.count = bitCountShift(numbers_struct.number);
-
-
-    numbers_struct.number = 1000;
-    numbers_struct.count = bitCountShift(numbers_struct.number);
-
 
 /*
  *"---------------------------------------------------
@@ -134,6 +96,7 @@ int main(int argc,char *argv[])
 
     struct_playground();
 
+    recursion_playground();
 
     return 0;
 }

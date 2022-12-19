@@ -12,6 +12,8 @@ extern int bitCountShift(int val);
 
 extern int power_of_2(int base, int input);
 
+extern 
+void recursion_playground(void);
 
 #endif /*  */
 
