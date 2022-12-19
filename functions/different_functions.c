@@ -109,7 +109,7 @@ int read_one_line_from_file(FILE * file_handler, char * line)
 
 void str_line(void * file_handler, void * return_str)
 {
-    if (file_handler != NULL)
+    if ((file_handler != NULL) && (return_str != NULL ))
     {
         printf("file handler id %p\n",file_handler);
         int letter = fgetc((FILE*)file_handler);
@@ -122,6 +122,14 @@ void str_line(void * file_handler, void * return_str)
         }
 
         return_str = (void *)str_tmp;
+    }
+    else    
+   {
+        if (file_handler == NULL)
+            printf("ERROR file not opened \n");
+
+        if (return_str == NULL)
+            printf("ERROR  return_str not allocated! \n");
     }
 }
 
@@ -152,7 +160,7 @@ int whole_file_to_one_str( FILE *file_handler, char *table )
 {
     int is_it_ok = 0;
 
-    if (file_handler != NULL)
+    if ((file_handler != NULL) && (table != NULL))
     {
 
         char character;

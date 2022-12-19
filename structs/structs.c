@@ -10,7 +10,10 @@ structs playing
 #include <stdlib.h>
 #include <stdio.h>
 
-
+/*
+this function shows how to allocate structure of
+some type
+*/
 void define_Point_struct(
     void
     )
@@ -36,9 +39,14 @@ void define_Point_struct(
             printf("point %d %d \n", points_array[i].x, points_array[i].y);
         }
     }
+
+    free(points_array);
 }
 
-
+/*
+function that allocates new structure
+and returns it for further use outside of function
+*/
 Employee * define_employee_array(int elements)
 {
     Employee * employers_db = malloc(sizeof(Employee) * elements);
@@ -48,7 +56,7 @@ Employee * define_employee_array(int elements)
         for(int i = 0; i < elements; i++)
         {
             printf("give employee name max 10 letters \n");
-            scanf("%s", &employers_db[i].name );
+            scanf("%s", (char*)&employers_db[i].name );
             printf("give employee age  \n");
             scanf("%f", &employers_db[i].age );
             printf("give employee id \n");
@@ -59,6 +67,10 @@ Employee * define_employee_array(int elements)
     return employers_db;
 }
 
+/*
+function that allocates new structure
+and returns it through argument for further use outside of function
+*/
 void  define_employee_array2(int elements, Employee **employers_db)
 {
      *employers_db = malloc(sizeof(Employee) * elements);
@@ -68,7 +80,7 @@ void  define_employee_array2(int elements, Employee **employers_db)
         for(int i = 0; i < elements; i++)
         {
             printf("give employee name max 10 letters \n");
-            scanf("%s", &(*employers_db)[i].name );
+            scanf("%s", (char*)&(*employers_db)[i].name );
             printf("give employee age  \n");
             scanf("%f", &(*employers_db)[i].age );
             printf("give employee id \n");
@@ -87,4 +99,46 @@ void show_employee_array(int size, Employee *emp_db)
             printf("%d Id %d Name %s age %f \n", i ,emp_db[i].id, emp_db[i].name, emp_db[i].age);
         }
     }
+}
+
+
+void struct_playground(void)
+{
+    typedef struct point1
+    {
+        char x;
+        double y;
+        char z;
+    } Point1;
+
+    typedef struct point2
+    {
+        char x;
+        int y;
+        char z;
+    } Point2;
+
+
+    Point1 point1_1 = { 90, 90.56, 91};
+    Point2 point2_1 = { 90, 90, 91};
+
+    printf("Point1 has size %ld \n That is because the last element is aligned to the biggest data type of struct\n", sizeof(point1_1));
+    printf("Point2 has size %ld \n That is because the last element is aligned to the biggest data type of struct\n", sizeof(point2_1));
+
+    define_Point_struct();
+
+
+    Employee * arrayEmp;
+    int nr1 = 3;
+    arrayEmp = define_employee_array(nr1);
+
+    show_employee_array(nr1, arrayEmp);
+    free(arrayEmp);
+
+    Employee * arrayEmp2;
+    int nr2 = 2;
+    define_employee_array2(nr2, &arrayEmp2);
+
+    show_employee_array(nr2, arrayEmp2);
+    free(arrayEmp);
 }

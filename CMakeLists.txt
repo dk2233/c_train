@@ -21,6 +21,7 @@ include_directories(
     std_lib_object     
     strings 
     structs
+    files
     )
 
 #add_subdirectory(arrays)
@@ -31,6 +32,7 @@ add_executable(ctests
     fun_pointers/func_pointers.c
     functions/different_functions.c
     main/main.c
+    files/files.c
     recursion1/recur.c
     std_lib_object/std_lib_object.c
     strings/str_change.c

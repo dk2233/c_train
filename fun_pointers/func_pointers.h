@@ -50,4 +50,7 @@ extern void call_one_function_pointer ( void  (*function)(void *, void *), int  
 
 extern void call_all_function ( function_pointers_definition *struct_of_func  );
 
+extern 
+void function_pointer_playground(void);
+
 #endif
