@@ -8,5 +8,12 @@
 
 
 extern void string_letter_replace(char *input_string);
+
 extern void string_different_tests(void);
+
+extern int string_length(char* str);
+
+
+extern int strig_concat(char** dest, char * src);
+
 #endif

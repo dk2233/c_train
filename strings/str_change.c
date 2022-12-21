@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "func_pointers.h"
 #include "defines.h"
+#include "str_change.h"
+#include <stdlib.h>
 
 typedef struct{
     char searched;
@@ -62,4 +64,57 @@ void string_different_tests(void)
     string_letter_replace(string_to_change);
     printf("%s\n",string_to_change);
 
+
+    printf("string %s has length %d\n", string_to_change,  string_length(string_to_change));
+
+    char *str1 = calloc(MAX_LINE_SIZE, sizeof(char));
+    printf("give second string >");
+    scanf("%s",str1);
+
+    /* here new str2 is allocated that will keep exact str size that was given from keyboard*/
+    char *str2 = calloc(string_length(str1), sizeof(char));
+
+    strcpy(str2, str1);
+    strig_concat(&str2, " _ ");
+    int final_len = strig_concat(&str2, string_to_change);
+    printf("%s \n", str2);
+
+    free(str1);
+    free(str2);
+}
+
+/*
+function to measure str length*/
+int string_length(char* str)
+{
+    int l = 0;
+    while(str[l] != '\0')
+    {
+        l++;
+    }
+
+    return l;
+
+}
+
+/*
+this also automaticaly realloc char* to cover
+new string size*/
+int strig_concat(char** dest, char * src)
+{
+
+    int str_len_dest = string_length(*dest);
+    int str_len_src = string_length(src);
+
+    *dest = realloc(*dest, sizeof(char)* (str_len_dest + str_len_src));
+    int i = 0;
+    while(i < str_len_src)
+    {
+        (*dest)[str_len_dest + i] = src[i];
+        i++;
+    }
+
+    return str_len_dest + str_len_src;
+
+    
 }
