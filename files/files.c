@@ -15,6 +15,7 @@ opening, closing files
 #include "std_lib_object.h"
 #include "defines.h"
 #include "different_functions.h"
+#include <time.h>
 
 void files_playground(void)
 {
@@ -70,6 +71,8 @@ void files_playground(void)
         fclose(file_hd);
     }
 
+    double time = time_measurement();
+
     //"---------------------------------------------------
     char *str3 = "find_linux.sh";
     std_objects.open_file(str3, "r",  &file_hd);
@@ -92,6 +95,7 @@ void files_playground(void)
         fclose(file_hd);
     }
 
+    printf("Time measured %lf \n", time_measurement());
     /* added from std_objects o
      * examples of using function pointers gather into one object */
 

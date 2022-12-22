@@ -17,6 +17,7 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 void sum_to_int(void* a, void* b)
 {
@@ -74,4 +75,33 @@ void str_line(void * file_handler, void * return_str)
         if (return_str == NULL)
             printf("ERROR  return_str not allocated! \n");
     }
+}
+
+/* this function will return time period measured
+between two function call
+1 call start measurements
+2nd call returns time period that pass */
+double time_measurement(void)
+{
+    static struct time_status_t {
+        unsigned int measurement_started:1;
+        clock_t clock_start_value;
+    }time_status = {0,0} ;
+    double period = 0;
+
+    if (time_status.measurement_started == 0)
+    {
+        time_status.measurement_started = 1;
+        time_status.clock_start_value = clock();
+    } 
+    else 
+    {
+        clock_t diff =  clock() - time_status.clock_start_value;
+        printf("us pass %ld\n", diff);
+        period = (double)(diff)/CLOCKS_PER_SEC;
+        time_status.measurement_started = 0;
+    }
+
+    return period;
+
 }
