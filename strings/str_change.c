@@ -52,7 +52,18 @@ void string_letter_replace(char *input_string)
 void string_different_tests(void)
 {
     char string_to_change[40];
+    char * str_not_changable = "if you try to change this string it will not work you will see core dump\n";
     uint8_t i = 0 ;
+
+
+    /*
+    string cannot be changed - it points to read only memory
+    */
+    //str_not_changable[0] = 'a';
+
+    char string_changable[] = "this can be changed";
+
+    string_changable[0] = 'T';
 
     printf(" give string:");
 
@@ -99,22 +110,25 @@ int string_length(char* str)
 
 /*
 this also automaticaly realloc char* to cover
-new string size*/
+new string size
+1. it checks length of dest and src
+2. assumption is dst has exact length how many letters is in there
+3. then it calculates the sum of dest and src
+4. realloc dst to has required size */
 int strig_concat(char** dest, char * src)
 {
 
-    int str_len_dest = string_length(*dest);
+    int str_len_dest = string_length(*dest) ;
     int str_len_src = string_length(src);
 
-    *dest = realloc(*dest, sizeof(char)* (str_len_dest + str_len_src));
+    *dest = realloc(*dest, sizeof(char)* (str_len_dest + str_len_src + 1));
     int i = 0;
     while(i < str_len_src)
     {
         (*dest)[str_len_dest + i] = src[i];
         i++;
     }
+    (*dest)[str_len_dest + i] = '\0';
 
     return str_len_dest + str_len_src;
-
-    
 }
