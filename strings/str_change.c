@@ -62,13 +62,17 @@ void string_different_tests(void)
     */
     //str_not_changable[0] = 'a';
 
-    char string_changable[] = "this can be changed";
+    char string_changable[] = "this can be changed You can try on your own. can!";
 
     string_changable[0] = 'T';
 
     cc_fprintf(CC_BG_GREEN, stdout, " give string:");
 
     scanf("%[^\n]s",string_to_change);
+
+    uint32_t * tab =  string_find_string(string_changable, string_to_change);
+
+    printf("%s have been found in idx %d in %s\n", string_to_change, tab[0], string_changable);
 
     printf("check_type of string array %s \n", check_type( string_to_change));
     printf("check_type of variable i is %s \n", check_type( i));
@@ -87,8 +91,8 @@ void string_different_tests(void)
     char *str2 = calloc(string_length(str1), sizeof(char));
 
     strcpy(str2, str1);
-    strig_concat(&str2, " _ ");
-    int final_len = strig_concat(&str2, string_to_change);
+    string_concat(&str2, " _ ");
+    int final_len = string_concat(&str2, string_to_change);
     printf("%s \n", str2);
 
     free(str1);
@@ -97,7 +101,7 @@ void string_different_tests(void)
 
 /*
 function to measure str length*/
-int string_length(char* str)
+uint32_t string_length(char* str)
 {
     int l = 0;
     while(str[l] != '\0')
@@ -116,7 +120,7 @@ new string size
 2. assumption is dst has exact length how many letters is in there
 3. then it calculates the sum of dest and src
 4. realloc dst to has required size */
-int strig_concat(char** dest, char * src)
+int string_concat(char** dest, char * src)
 {
 
     int str_len_dest = string_length(*dest) ;
@@ -158,3 +162,47 @@ void string_operation_find_char(void *str_in, void *char_in)
     printf("NOT found letter %c in %s \n",searched, (char *)str_in);
 
 }		/* -----  end of function str_op_find_char  ----- */
+
+
+uint32_t * string_find_string(char* string, char* str_searched)
+{
+    uint32_t * index = calloc(1, sizeof(uint32_t));
+    uint32_t j = 0;
+    uint32_t ind_start = 0;
+    uint32_t last_found_idx = 0;
+    uint32_t searched_len = string_length( str_searched);
+
+    index[last_found_idx] = -1;
+    
+    for(unsigned int i = 0; i < string_length(string) ; i++)
+    {
+
+        if (string[i] == str_searched[j])
+        {
+            if (j == 0)
+            {
+                ind_start = i;
+            }
+            j++;
+            if (j == searched_len)
+            {
+                printf("found %s in index %d \n", str_searched, ind_start);
+                j = 0 ;
+                index[last_found_idx++ ] = ind_start;
+
+                index = realloc(index, last_found_idx * sizeof(uint32_t));
+                
+                index[last_found_idx] = -1;
+
+            }
+        }
+        else
+        {
+            j = 0;
+
+        }
+
+    }
+    return index;
+
+}
