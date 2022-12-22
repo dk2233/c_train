@@ -22,12 +22,14 @@ include_directories(
     strings 
     structs
     files
+    deps/console-colors
     )
 
 #add_subdirectory(arrays)
 
 
 add_executable(ctests  
+    deps/console-colors/console-colors.c
     arrays/array_func.c
     fun_pointers/func_pointers.c
     functions/different_functions.c

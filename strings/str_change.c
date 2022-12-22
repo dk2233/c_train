@@ -4,6 +4,7 @@
 #include "defines.h"
 #include "str_change.h"
 #include <stdlib.h>
+#include "console-colors.h"
 
 typedef struct{
     char searched;
@@ -65,7 +66,7 @@ void string_different_tests(void)
 
     string_changable[0] = 'T';
 
-    printf(" give string:");
+    cc_fprintf(CC_BG_GREEN, stdout, " give string:");
 
     scanf("%[^\n]s",string_to_change);
 
