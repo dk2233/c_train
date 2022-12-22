@@ -17,6 +17,7 @@
  */
 #include "std_lib_object.h"
 #include "different_functions.h"
+#include "files.h"
 
 std_object_type std_objects = 
 {

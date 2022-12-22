@@ -20,6 +20,8 @@
 #include <stdio.h>
 #include "different_functions.h"
 #include "defines.h"
+#include "files.h"
+#include "str_change.h"
 /*
  * ===  FUNCTION  ======================================================================
  *         Name:  call_all_function
@@ -88,7 +90,7 @@ void function_pointer_playground(void)
         },
         .func_array[1] =
         {
-            &str_op_find_char,
+            &string_operation_find_char,
             (void * )str1,
             (void*)&sss,
             NULL

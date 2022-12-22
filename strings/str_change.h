@@ -13,6 +13,7 @@ extern void string_different_tests(void);
 
 extern int string_length(char* str);
 
+extern  void string_operation_find_char ( void * str_in, void * char_in  );
 
 extern int strig_concat(char** dest, char * src);
 

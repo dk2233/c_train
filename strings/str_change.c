@@ -132,3 +132,28 @@ int strig_concat(char** dest, char * src)
 
     return str_len_dest + str_len_src;
 }
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  str_op_find_char
+ *  Description:  
+ * =====================================================================================
+ */
+void string_operation_find_char(void *str_in, void *char_in)
+{
+    char *str1 =(void *)str_in;
+    char searched = *((char *) char_in );
+
+    for( char letter = *str1; letter != '\0' ; str1++, letter = *str1)
+    {
+        if (letter == searched)
+        {
+            printf("found letter %c in %s \n",searched, (char*)str_in);
+            return;
+
+        }
+
+    }
+    printf("NOT found letter %c in %s \n",searched, (char *)str_in);
+
+}		/* -----  end of function str_op_find_char  ----- */
