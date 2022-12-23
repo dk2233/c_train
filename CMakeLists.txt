@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16.3)
 
 project(ctests)
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
@@ -14,6 +14,7 @@ include(GNUInstallDirs)
 
 include_directories(
     arrays 
+    argv_parse
     defines 
     fun_pointers 
     functions 
@@ -31,6 +32,8 @@ include_directories(
 add_executable(ctests  
     deps/console-colors/console-colors.c
     arrays/array_func.c
+    argv_parse/arg_parse.c
+    argv_parse/arg_parse_config.c
     fun_pointers/func_pointers.c
     functions/different_functions.c
     main/main.c

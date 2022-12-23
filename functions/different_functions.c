@@ -18,6 +18,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <stdbool.h>
+#include "array_func.h"
 
 void sum_to_int(void* a, void* b)
 {
@@ -93,6 +95,7 @@ double time_measurement(void)
     {
         time_status.measurement_started = 1;
         time_status.clock_start_value = clock();
+        // printf("clock resolution ", clock_getres());
     } 
     else 
     {
@@ -103,5 +106,32 @@ double time_measurement(void)
     }
 
     return period;
+
+}
+
+void argument_array(char * argv_parameter)
+{
+        int nr;
+        char *new_tab;
+
+        nr = atoi(argv_parameter);
+
+        if (nr>0)
+        {
+            int *tab;
+            printf("array size %d \n",nr);
+
+            tab = array_parse(nr);
+
+            for(int i = 0; i < nr; i++)
+            {
+                printf("nr %d %d\n",i,tab[i]);
+            }
+
+            if (create_array( (void **) &new_tab, nr, sizeof(int)  ) == true)
+            {
+                new_tab[0] = 10;
+            }
+        }
 
 }

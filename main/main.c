@@ -9,6 +9,7 @@
 #include "std_lib_object.h"
 #include "structs.h"
 #include "files.h"
+#include "arg_parse.h"
 
 
 static int tab_test[FUNCTION_ARGUMENT] =
@@ -35,23 +36,7 @@ int main(int argc,char *argv[])
 
     if (1<argc)
     {
-        nr=atoi(argv[1]);
-        if (nr>0)
-        {
-            printf("array size %d \n",nr);
-
-            tab =array_parse(nr);
-
-            for(; i<nr; i++)
-            {
-                printf("nr %d %d\n",i,tab[i]);
-            }
-
-            if (create_array( (void **) &new_tab, nr, sizeof(int)  ) == true)
-            {
-                new_tab[0] = 10;
-            }
-        }
+        parser_arguments(argc, argv);
     }
     else
     {

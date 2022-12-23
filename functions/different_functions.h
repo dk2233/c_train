@@ -26,4 +26,6 @@ extern
 int read_one_line_from_file(FILE * file_handler, char* line);
 
 extern double time_measurement(void);
+
+extern void argument_array(char * argv_parameter);
 #endif
