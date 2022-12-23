@@ -72,7 +72,7 @@ void string_different_tests(void)
 
     uint32_t * tab =  string_find_string(string_changable, string_to_change);
 
-    printf("%s have been found in idx %d in %s\n", string_to_change, tab[0], string_changable);
+    cc_fprintf(CC_FG_DARK_GREEN, stdout, "%s have been found in idx %d in \'%s\'\n", string_to_change, tab[0], string_changable);
 
     printf("check_type of string array %s \n", check_type( string_to_change));
     printf("check_type of variable i is %s \n", check_type( i));
@@ -87,10 +87,11 @@ void string_different_tests(void)
     printf("give second string >");
     scanf("%s",str1);
 
+    printf("str len %ld %d \n",strlen(str1), string_length(str1));
     /* here new str2 is allocated that will keep exact str size that was given from keyboard*/
-    char *str2 = calloc(string_length(str1), sizeof(char));
+    char *str2 = calloc(string_length(str1) + 1, sizeof(char));
 
-    strcpy(str2, str1);
+    string_copy(str2, str1);
     string_concat(&str2, " _ ");
     int final_len = string_concat(&str2, string_to_change);
     printf("%s \n", str2);
@@ -205,4 +206,16 @@ uint32_t * string_find_string(char* string, char* str_searched)
     }
     return index;
 
+}
+
+char * string_copy(char * dst, char * copied_string)
+{
+    uint32_t i = 0;
+    while(copied_string[i] != '\0')
+    {
+        dst[i] = copied_string[i];
+        i++;
+    }
+    dst[i] = '\0';
+    return dst;
 }
