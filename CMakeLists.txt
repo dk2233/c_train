@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16.3)
 
 project(ctests)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
@@ -38,6 +38,7 @@ add_executable(ctests
     recursion1/recur.c
     std_lib_object/std_lib_object.c
     strings/str_change.c
+    strings/str_functions.c
     structs/structs.c)
     
 #target_include_directories(ctests 
