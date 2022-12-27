@@ -10,6 +10,7 @@
 #include "structs.h"
 #include "files.h"
 #include "arg_parse.h"
+#include "console-colors.h"
 
 
 static int tab_test[FUNCTION_ARGUMENT] =
@@ -50,14 +51,14 @@ int main(int argc,char *argv[])
     char option[5];
     do
     {
-        printf("************************************************\n");
-        printf("> s\\S strings \n");
+        cc_fprintf(CC_FG_BLUE, stdout, "************************************************\n");
+        cc_fprintf(CC_BG_CYAN, stdout, "> s\\S strings \n");
         printf("> a\\A arrays \n");
         printf("> b\\B structs \n");
         printf("> f\\F function pointers \n");
         printf("> g\\G files \n");
         printf("> r\\R recursion \n");
-        printf("> q\\Q EXIT \n");
+        cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
         // option = getchar();
         scanf("%s", option);
         //there is still an enter pressed
