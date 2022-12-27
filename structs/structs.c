@@ -140,5 +140,5 @@ void struct_playground(void)
     define_employee_array2(nr2, &arrayEmp2);
 
     show_employee_array(nr2, arrayEmp2);
-    free(arrayEmp);
+    free(arrayEmp2);
 }
