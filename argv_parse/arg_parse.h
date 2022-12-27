@@ -12,11 +12,8 @@ typedef struct argument_config_structure
 }
 argument_config_t; 
 
-extern argument_config_t arg_config[1];
+extern argument_config_t arg_config[];
 
 extern void parser_arguments(int argc, char * argv[]);
 
-
-
-#define NR_OF_ARG_TABLE  sizeof(argument_config_t)/sizeof(arg_config)
 #endif

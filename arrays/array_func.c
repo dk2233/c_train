@@ -67,6 +67,8 @@ void check_array_argument(int tab[FUNCTION_ARGUMENT])
 }
 /*
 this function allocates array and returns its pointer **
+
+if call second time it should free buffer
 */
 bool create_array(void ** tab, int size_of_array, size_t size_of_one_element )
 {

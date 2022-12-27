@@ -47,5 +47,6 @@ add_executable(ctests
 #target_include_directories(ctests 
 #    $(CMAKE_CURRENT_LIST_DIR))
 
-target_link_libraries(ctests -Wall)
+target_link_libraries(ctests -Wall -Wextra)
+ 
 

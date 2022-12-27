@@ -20,6 +20,8 @@
 #include <time.h>
 #include <stdbool.h>
 #include "array_func.h"
+#include "files.h"
+#include "structs.h"
 
 void sum_to_int(void* a, void* b)
 {
@@ -112,7 +114,7 @@ double time_measurement(void)
 void argument_array(char * argv_parameter)
 {
         int nr;
-        char *new_tab;
+        char *new_tab = NULL;
 
         nr = atoi(argv_parameter);
 
@@ -123,15 +125,57 @@ void argument_array(char * argv_parameter)
 
             tab = array_parse(nr);
 
-            for(int i = 0; i < nr; i++)
+            if (tab != NULL)
             {
-                printf("nr %d %d\n",i,tab[i]);
-            }
+                for (int i = 0; i < nr; i++)
+                {
+                    printf("nr %d %d\n", i, tab[i]);
+                }
 
-            if (create_array( (void **) &new_tab, nr, sizeof(int)  ) == true)
-            {
-                new_tab[0] = 10;
+                if (create_array((void **)&new_tab, nr, sizeof(char)) == true)
+                {
+                    new_tab[0] = 10;
+                }
+                create_array((void ** )&new_tab, 0, 1 );
+                free(tab);
             }
         }
+
+}
+
+void argument_file_read_point(char * argv_parameter)
+{
+
+    FILE * file_points = file_binary_open(argv_parameter);
+
+    if (file_points != NULL)
+    {
+            int size_of_file = file_length(file_points);
+
+            int nr_of_point = size_of_file / sizeof(Point);
+
+            Point *points_array = calloc(nr_of_point, sizeof(Point));
+
+            if (points_array != NULL)
+            {
+                size_t nr_read = fread((void *)points_array, sizeof(Point), nr_of_point, file_points);
+
+                printf("I have read %ld Points from file %s \n", nr_read, argv_parameter);
+
+                for (int i = 0; i < nr_read; i++)
+                {
+                    printf("point %d x = %d y = %d\n", i, points_array[i].x, points_array[i].y);
+                }
+
+                free(points_array);
+            }
+
+            fclose(file_points);
+    }
+    else
+    {
+        printf("Problem read file %s \n",argv_parameter);
+    }
+
 
 }
