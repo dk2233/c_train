@@ -14,33 +14,33 @@ structs playing
 this function shows how to allocate structure of
 some type
 */
-void define_Point_struct(
-    void
-    )
+int define_Point_struct(
+    Point ** points_array)
 {
     int nr_elements = 0;
 
     printf("give nr of elements \n");
     scanf("%d",&nr_elements);
 
-    Point * points_array = malloc(sizeof(Point) * nr_elements);
+    *points_array = malloc(sizeof(Point) * nr_elements);
 
-    if (points_array != NULL)
+    if (*points_array != NULL)
     {
         for (int i = 0; i < nr_elements; i++)
         {
             printf("give x and y for %d element\n", i);
-            scanf("%d", &points_array[i].x);
-            scanf("%d", &points_array[i].y);
+            scanf("%d", &(*points_array)[i].x);
+            scanf("%d", &(*points_array)[i].y);
         }
 
         for (int i = 0; i < nr_elements; i++)
         {
-            printf("point %d %d \n", points_array[i].x, points_array[i].y);
+            printf("point %d %d \n", (*points_array)[i].x, (*points_array)[i].y);
         }
     }
 
-    free(points_array);
+    return nr_elements;
+
 }
 
 /*
@@ -125,7 +125,10 @@ void struct_playground(void)
     printf("Point1 has size %ld \n That is because the last element is aligned to the biggest data type of struct\n", sizeof(point1_1));
     printf("Point2 has size %ld \n That is because the last element is aligned to the biggest data type of struct\n", sizeof(point2_1));
 
-    define_Point_struct();
+    Point *point_table;
+    (void)define_Point_struct(&point_table);
+
+    free(point_table);
 
 
     Employee * arrayEmp;

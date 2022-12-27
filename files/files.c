@@ -16,6 +16,8 @@ opening, closing files
 #include "defines.h"
 #include "different_functions.h"
 #include <time.h>
+#include "structs.h"
+#include "files.h"
 
 void files_playground(void)
 {
@@ -115,6 +117,19 @@ void files_playground(void)
         printf("found searched string %s in %d\n", searched_str,(unsigned int) ( ret_loc - file_name));
     }
 
+    char * file_name_points = "file1.bin";
+    FILE * file1 = file_binary_open(file_name_points);
+
+    Point *array_of_points;
+    int nr = define_Point_struct(&array_of_points);
+
+    size_t how_many_was_written = fwrite((const void*)array_of_points, sizeof(Point), nr, file1);
+    printf("%ld point structs were written to %s\n", how_many_was_written, file_name_points );
+
+    free(array_of_points);
+    fclose(file1);
+
+
 }
 
 
@@ -207,3 +222,19 @@ int whole_file_to_one_str( FILE *file_handler, char *table )
 
 }
 
+FILE * file_binary_open(char* file_name)
+{
+    FILE * file1 = fopen(file_name, "rb+");
+
+    if (file1 == NULL)
+    {
+        /* there is no such file
+        create new*/
+
+    file1 = fopen(file_name, "w+b");
+    }
+
+
+    return file1;
+
+}

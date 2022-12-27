@@ -10,7 +10,9 @@ typedef struct employee {
     int id;
 } Employee;
 
-extern  void define_Point_struct(void );
+extern int define_Point_struct(
+    Point ** points_array);
+
 
 extern Employee * define_employee_array(int elements);
 
