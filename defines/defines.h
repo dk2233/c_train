@@ -2,7 +2,17 @@
 #define DEFINES_H
 
 #include "stdint.h"
+/*
+simplest possible use of offset calculation
+it requires to define some instance of type
+also it requires to performs subtraction*/
+#define OFFSET(x, y) ((size_t) & (y) - (size_t) & (x))
 
+/*
+advanced version of offset
+it casts NULL to checked type (datatype) and to calculate offset
+it only needs to return address of member*/
+#define OFFSET_NULL(type_struct, member)     (  (size_t)&(  ( (type_struct *)NULL )->member)  )
 
 #define THIS_DOES_NOT_WORK  
 

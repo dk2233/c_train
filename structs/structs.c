@@ -7,8 +7,11 @@ structs playing
 
 */
 #include "structs.h"
+#include "defines.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
+#include <stddef.h>
 
 /*
 this function shows how to allocate structure of
@@ -125,6 +128,12 @@ void struct_playground(void)
     printf("Point1 has size %ld \n That is because the last element is aligned to the biggest data type of struct\n", sizeof(point1_1));
     printf("Point2 has size %ld \n That is because the last element is aligned to the biggest data type of struct\n", sizeof(point2_1));
 
+
+    emp_t test1 = {0};
+
+    check_size_and_offset(test1);
+
+
     Point *point_table;
     (void)define_Point_struct(&point_table);
 
@@ -144,4 +153,16 @@ void struct_playground(void)
 
     show_employee_array(nr2, arrayEmp2);
     free(arrayEmp2);
+}
+
+void check_size_and_offset(emp_t test_struct)
+{
+    /* here I use a std lib approach*/
+    printf("size of emp_name %ld offset %ld \n", sizeof(test_struct.emp_name), offsetof(emp_t, emp_name));
+    /* here simple macro that subtracts both entities*/
+    printf("size of emp_id %ld offset %ld \n", sizeof(test_struct.emp_id), OFFSET(test_struct, test_struct.emp_id));
+    printf("size of age %ld offset %ld \n", sizeof(test_struct.age), OFFSET(test_struct, test_struct.age));
+    printf("size of *mgr %ld offset %ld \n", sizeof(test_struct.mgr), OFFSET(test_struct, test_struct.mgr));
+    printf("size of *mgr %ld offset alternative calculated %ld \n", sizeof(test_struct.mgr), OFFSET_NULL(emp_t, mgr));
+    printf("size of salary %ld offset %ld \n", sizeof(test_struct.salary), OFFSET_NULL(emp_t, salary));
 }
