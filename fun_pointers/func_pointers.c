@@ -40,11 +40,12 @@ call_all_function ( function_ptr_struct_composition *struct_of_func   )
             struct_of_func->func_array[i].func_union.function_p( struct_of_func->func_array[i].argument1, struct_of_func->func_array[i].argument2a);
 
         }
-        else if (struct_of_func->func_array[i].argument2a == NULL)
+        else if ( (struct_of_func->func_array[i].argument2a == NULL) && (struct_of_func->func_array[i].argument2b != NULL))
             //(struct_of_func->func_array[i].argument2b != NULL)
         {
-            struct_of_func->func_array[i].func_union.function_point_point_p( struct_of_func->func_array[i].argument1, struct_of_func->func_array[i].argument2b);
-
+            struct_of_func->func_array[i].func_union.function_point_point_p(
+                 struct_of_func->func_array[i].argument1,
+                  struct_of_func->func_array[i].argument2b);
         }
         else if ((struct_of_func->func_array[i].argument2a == NULL) && (struct_of_func->func_array[i].argument2b == NULL) ) 
         {
