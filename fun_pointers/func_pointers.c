@@ -29,7 +29,7 @@
  * =====================================================================================
  */
 void
-call_all_function ( function_pointers_definition *struct_of_func   )
+call_all_function ( function_ptr_struct_composition *struct_of_func   )
 {
     printf("call_all_function\n");
 
@@ -40,11 +40,18 @@ call_all_function ( function_pointers_definition *struct_of_func   )
             struct_of_func->func_array[i].func_union.function_p( struct_of_func->func_array[i].argument1, struct_of_func->func_array[i].argument2a);
 
         }
-        else
+        else if (struct_of_func->func_array[i].argument2a == NULL)
             //(struct_of_func->func_array[i].argument2b != NULL)
         {
             struct_of_func->func_array[i].func_union.function_point_point_p( struct_of_func->func_array[i].argument1, struct_of_func->func_array[i].argument2b);
 
+        }
+        else if ((struct_of_func->func_array[i].argument2a == NULL) && (struct_of_func->func_array[i].argument2b == NULL) ) 
+        {
+            struct_of_func->func_array[i].func_union.function_ptr_int(
+                struct_of_func->func_array[i].argument1,
+                struct_of_func->func_array[i].arg_int
+            );
         }
 
 
@@ -78,28 +85,37 @@ void function_pointer_playground(void)
     char *file_name = "cscope.files";
 
     FILE *file_hd2;
-    function_pointers_definition functions_def_struct =
-    {
-        .elements_number = HOW_MANY_FUNCTION,
-        .func_array[0] =
+
+    function_ptr_def function_ptr_table1[] = {
         {
             &sum_to_int,
             (void *)&a,
             (void *)&b,
             NULL,
+            0,
         },
-        .func_array[1] =
         {
             &string_operation_find_char,
             (void * )str1,
             (void*)&sss,
-            NULL
+            NULL,
+            0,
         },
         /*  this method of using pointer to return File will not work until we use ** pointer
          *  every time we open file we also change structure address
          *  so we should use here ** pointer that can be changed were it is pointing to */
-        .func_array[2] ={ .func_union.function_point_point_p =  &func_open_file_FILE,  (void *)file_name, NULL,  (void **)&file_hd2},
+        { .func_union.function_point_point_p =  &func_open_file_FILE,
+          (void *)file_name, 
+          NULL,
+          (void **)&file_hd2},
+          0
+    };
 
+
+    function_ptr_struct_composition functions_def_struct =
+    {
+        .elements_number = 3,
+        .func_array = function_ptr_table1,
     };
 
     call_all_function( &functions_def_struct);

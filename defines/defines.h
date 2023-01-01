@@ -31,7 +31,8 @@ default: "I am not sure")
 
 enum TYPES_C {
     CHAR_TYPE,
-    INT_TYPE
+    SHORT_TYPE,
+    INT_TYPE,
 };
 
 #endif /* COMPONENT_H */
