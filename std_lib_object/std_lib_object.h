@@ -1,3 +1,5 @@
+#ifndef STD_LIB_OBJECTS_H
+#define STD_LIB_OBJECTS_H
 /*
  * =====================================================================================
  *
@@ -32,3 +34,5 @@ typedef struct
 } std_object_type;
 
 extern std_object_type std_objects;
+
+#endif

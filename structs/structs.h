@@ -1,3 +1,5 @@
+#ifndef STRUCT_H
+#define STRUCT_H
 
 typedef struct {
 int x;
@@ -10,22 +12,12 @@ typedef struct employee {
     int id;
 } Employee;
 
-extern int define_Point_struct(
-    Point ** points_array);
-
-
 typedef struct emp_ {
-
     char emp_name[30];
-
     unsigned int emp_id;
-
     unsigned int age;
-
     struct emp_ *mgr;
-
     float salary;
-
 } emp_t;
 
 
@@ -40,3 +32,7 @@ extern void show_employee_array(int size, Employee *emp_db);
 extern void struct_playground(void);
 
 extern void use_struct_flexible_array( int size_of_struct);
+
+extern int define_Point_struct(Point ** points_array);
+
+#endif

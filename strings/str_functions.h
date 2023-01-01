@@ -1,3 +1,6 @@
+#ifndef STR_FUNCTIONS_H
+#define STR_FUNCTIONS_H
+
 #include <stdint.h>
 
 #define MAX_LETTERS_FROM_KB   100U
@@ -9,3 +12,5 @@ extern uint32_t * string_find_string(char* string, char* str_searched);
 extern char * string_copy(char * dst, char * copied_string);
 
 extern uint32_t string_length(char* str);
+
+#endif
