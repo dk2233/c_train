@@ -121,6 +121,7 @@ void struct_playground(void)
         char z;
     } Point2;
 
+    use_struct_flexible_array(4);
 
     Point1 point1_1 = { 90, 90.56, 91};
     Point2 point2_1 = { 90, 90, 91};
@@ -165,4 +166,46 @@ void check_size_and_offset(emp_t test_struct)
     printf("size of *mgr %ld offset %ld \n", sizeof(test_struct.mgr), OFFSET(test_struct, test_struct.mgr));
     printf("size of *mgr %ld offset alternative calculated %ld \n", sizeof(test_struct.mgr), OFFSET_NULL(emp_t, mgr));
     printf("size of salary %ld offset %ld \n", sizeof(test_struct.salary), OFFSET_NULL(emp_t, salary));
+}
+
+void use_struct_flexible_array( int size_of_struct)
+{
+    struct array_with_flexible {
+        int value;
+        char tab[];
+        };
+/*
+debug this procedure
+*/
+    struct array_with_flexible * flex1 =  malloc( sizeof(char[size_of_struct]) + sizeof(struct array_with_flexible));    
+
+    int i = 0;
+    for( ; i < size_of_struct; i++)
+    {
+        flex1->tab[i] = 1 + i*2;
+    }
+    flex1->value = i;
+
+    free(flex1);
+
+    struct array_points_flexible {
+        int nr;
+        Point point_table[];
+    };
+
+
+    struct array_points_flexible * flex2 = malloc(sizeof(Point[size_of_struct]) + sizeof(struct array_points_flexible));
+    i = 0 ;
+    for(; i < size_of_struct; i++)
+    {
+        flex2->point_table[i].x = 0.1*i + 1.5 * i;
+        flex2->point_table[i].y = -0.1*i + 1.5 * i;
+    }
+    flex2->nr = i;
+
+    free(flex2);
+
+    
+
+
 }

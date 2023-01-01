@@ -38,3 +38,5 @@ extern void  define_employee_array2(int elements, Employee **employers_db);
 extern void show_employee_array(int size, Employee *emp_db);
 
 extern void struct_playground(void);
+
+extern void use_struct_flexible_array( int size_of_struct);
