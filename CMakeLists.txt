@@ -24,6 +24,7 @@ include_directories(
     structs
     files
     deps/console-colors
+    bitwise
     )
 
 #add_subdirectory(arrays)
@@ -32,6 +33,7 @@ include_directories(
 add_executable(ctests  
     deps/console-colors/console-colors.c
     arrays/array_func.c
+    bitwise/bitwise.c
     argv_parse/arg_parse.c
     argv_parse/arg_parse_config.c
     fun_pointers/func_pointers.c

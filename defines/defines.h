@@ -27,5 +27,12 @@ uint8_t: "uint8_t", \
 int: "int",     \
 default: "I am not sure")
 
+
+
+enum TYPES_C {
+    CHAR_TYPE,
+    INT_TYPE
+};
+
 #endif /* COMPONENT_H */
 

@@ -59,7 +59,7 @@ void string_different_tests(void)
 
 
     /*
-    string cannot be changed - it points to read only memory
+    this string cannot be changed - it points to read only memory
     */
     //str_not_changable[0] = 'a';
 
