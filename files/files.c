@@ -30,7 +30,7 @@ void files_playground(void)
     char *str_from_file = calloc(1000U, sizeof(char));
     if (NULL != file_hd)
     {
-        str_line((void *)file_hd,(void *) str_from_file);
+        string_read_line((void *)file_hd,(void *) str_from_file);
         printf("1. first line %s \n", str_from_file) ;
         fclose(file_hd);
 
@@ -60,7 +60,7 @@ void files_playground(void)
             printf("second  %s \n", str_from_file) ;
 
         }
-        str_line((void *)file_hd,(void *) str_from_file);
+        string_read_line((void *)file_hd,(void *) str_from_file);
         printf("first  %s \n", str_from_file) ;
 
     }

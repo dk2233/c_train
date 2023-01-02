@@ -55,7 +55,7 @@ int read_one_line_from_file(FILE * file_handler, char * line)
 
 
 
-void str_line(void * file_handler, void * return_str)
+void string_read_line(void * file_handler, void * return_str)
 {
     if ((file_handler != NULL) && (return_str != NULL ))
     {
@@ -111,6 +111,8 @@ double time_measurement(void)
 
 }
 
+/* function that is run
+with argument  array call*/
 void argument_array(char * argv_parameter)
 {
         int nr;

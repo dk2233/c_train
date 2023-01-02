@@ -14,4 +14,6 @@ extern void make_not_int(void * var, int var_type_int);
 
 extern void print_binary(void * value, int type_of_var);
 
+extern void bitwise_swap_numbers(int *var1, int *var2);
+
 #endif

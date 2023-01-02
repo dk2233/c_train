@@ -60,6 +60,9 @@ void test_different_bitwise(void)
 
     call_all_function(&fptr_struct);
     call_all_function(&fptr_struct);
+    int b_int = 19;
+    a_int = 5;
+    bitwise_swap_numbers(&a_int, &b_int);
 
 }
 
@@ -143,5 +146,31 @@ void print_binary(void * value, int type_of_var)
 
     printf("\n");
 
+
+}
+
+/*
+please debug this 
+*/
+void bitwise_swap_numbers(int *var1, int *var2)
+{
+    /* we do not use third tmp variable
+    
+     var1 = 1000 1100
+  ^  var2 = 0100 1001
+  ____________________
+     var2   1100 0101
+ ^   var1   0100 1001
+ ______________________
+            1000 1100
+    */
+
+   /* calculate where differences are between both number */
+    *var2 = *var2 ^ *var1;
+    // *var2 = *var2 | *var1;
+    /* apply set difference to number 1 - it will apply bits to be changed to get second number*/
+    *var1 = *var2 ^ *var1;
+    *var2 = *var2 ^ *var1;
+    // *var1 = *var1 | *var2;
 
 }

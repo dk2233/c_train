@@ -21,7 +21,7 @@
 #include <time.h>
 
 extern void sum_to_int ( void *, void* );
-extern void str_line(void * file_handler, void * return_str);
+extern void string_read_line(void * file_handler, void * return_str);
 extern 
 int read_one_line_from_file(FILE * file_handler, char* line);
 

@@ -132,7 +132,7 @@ void function_pointer_playground(void)
     str_from_file = calloc(MAX_LINE_SIZE, sizeof(char));
     if (file_hd2 != NULL)
     {
-        str_line((void *)file_hd2,(void *) str_from_file);
+        string_read_line((void *)file_hd2,(void *) str_from_file);
         printf("2. first line %s \n", str_from_file) ;
         fclose(file_hd2);
     }

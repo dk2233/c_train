@@ -56,8 +56,8 @@ int main(int argc,char *argv[])
         cc_fprintf(CC_BG_CYAN, stdout, "> s\\S strings \n");
         printf("> a\\A arrays \n");
         printf("> b\\B bitwise \n");
-        printf("> d\\D structs \n");
-        printf("> f\\F function pointers \n");
+        cc_fprintf(CC_FG_YELLOW, stdout, "> d\\D structs \n");
+        cc_fprintf(CC_FG_GREEN, stdout, "> f\\F function pointers \n");
         printf("> g\\G files \n");
         printf("> r\\R recursion \n");
         cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
