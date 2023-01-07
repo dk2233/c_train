@@ -18,18 +18,21 @@ opening, closing files
 #include <time.h>
 #include "structs.h"
 #include "files.h"
+#include "assert.h"
 
 void files_playground(void)
 {
     
     /*  opening file in c */
     char *file_name = "cscope.files";
+    char *str_from_file ;
+
     FILE *file_hd;
     file_hd = fopen(file_name,"r");
 
-    char *str_from_file = calloc(1000U, sizeof(char));
     if (NULL != file_hd)
     {
+        str_from_file = calloc(1000U, sizeof(char));
         string_read_line((void *)file_hd,(void *) str_from_file);
         printf("1. first line %s \n", str_from_file) ;
         fclose(file_hd);
@@ -83,17 +86,19 @@ void files_playground(void)
     {
         size_of_file = (int)std_objects.file_size(file_hd);
         printf(" file size of %s %d \n",str3,size_of_file) ;
-        char *tab_str = calloc(size_of_file, sizeof(char));
+        char *tab_str = calloc(size_of_file + 1, sizeof(char));
+        assert(tab_str);
 
         if (
                 (tab_str != NULL) &&
                 (0 == std_objects.copy_file_to_string(file_hd, tab_str ))
            )
         {
-            printf("data taken from file %s: \n%s\n", str3, tab_str);
+            printf("data in address %p taken from file %s: \n%s\n", tab_str, str3, tab_str);
         }
         if (tab_str != NULL)
             free(tab_str);
+
         fclose(file_hd);
     }
 
@@ -150,7 +155,7 @@ long int file_length(FILE *file_hd)
             printf("actual location %ld ",ftell(file_hd));
 
         }
-        /*  We need to return position to beginnin of file */
+        /*  We need to return position to beginnig of file */
         fseek(file_hd, 0U, SEEK_SET );
         printf("actual location %ld \n",ftell(file_hd));
     }
@@ -196,6 +201,7 @@ void func_open_file_FILE(void * name, void ** file_handler )
 int whole_file_to_one_str( FILE *file_handler, char *table )
 {
     int is_it_ok = 0;
+    char *start_tab = table;
 
     if ((file_handler != NULL) && (table != NULL))
     {
@@ -204,9 +210,10 @@ int whole_file_to_one_str( FILE *file_handler, char *table )
         do 
         {
             character = fgetc(file_handler);
-            if ( (character != '\0') &&(character >-1 ) )
+            if ( (character != '\0') &&(character >-1 ) && (character != EOF))
             {
             *(table++) = character;
+            // printf(" %p %c \n",table, *(table-1) );
             }
         }
         while( (character != '\0') &&(character >-1 ) );
@@ -216,6 +223,7 @@ int whole_file_to_one_str( FILE *file_handler, char *table )
     {
     is_it_ok = 1;
     }
+    table = start_tab;
 
     return is_it_ok;
 
