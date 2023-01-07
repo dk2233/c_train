@@ -6,7 +6,7 @@
 
 void parser_arguments(int argc, char * argv[])
 {
-    for(int i = 0; i < argc; i++)
+    for(int i = 1; i < argc; i++)
     {
 
         for (int arg = 0; (arg_config[arg].function_to_parse.function_arg_array != NULL); arg++)
@@ -27,5 +27,17 @@ void parser_arguments(int argc, char * argv[])
                 }
             }
         }
+    }
+
+    if (argc < 2)
+    {
+        int i = 0;
+        while(arg_config[i].function_to_parse.function_arg_array != NULL)
+        {
+            printf("%s %s\n",arg_config[i].parameter,arg_config[i].help_str);
+            i++;
+
+        }
+
     }
 }

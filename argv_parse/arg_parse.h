@@ -7,6 +7,7 @@ typedef struct argument_config_structure
     union {
         void (*function_arg_array) (char *argv_parameter); 
         } function_to_parse;
+    char * help_str;
 
 
 }

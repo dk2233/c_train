@@ -25,7 +25,7 @@ int main(int argc,char *argv[])
 {
     int *tab;
     uint8_t i=0;
-    int nr;
+    int nr = 10;
     int * new_tab = NULL;
     char a1, a2, a3;
 
@@ -35,16 +35,7 @@ int main(int argc,char *argv[])
     a2 = 2;
     a3 = 3;
 
-
-    if (1<argc)
-    {
-        parser_arguments(argc, argv);
-    }
-    else
-    {
-        printf("Give as argument number of array items\n");
-        nr = 10U;
-    }
+    parser_arguments(argc, argv);
 
     /*
     menu of tests*/
