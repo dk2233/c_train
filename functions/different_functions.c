@@ -22,6 +22,7 @@
 #include "array_func.h"
 #include "files.h"
 #include "structs.h"
+#include "hash_calc.h"
 
 void sum_to_int(void* a, void* b)
 {
@@ -179,5 +180,12 @@ void argument_file_read_point(char * argv_parameter)
         printf("Problem read file %s \n",argv_parameter);
     }
 
+
+}
+
+void argument_hashes(char * argv_parameter)
+{
+    printf("sring to hash %s\n",argv_parameter);
+    printf("hash %ld\n",hash_dbj2(argv_parameter));
 
 }

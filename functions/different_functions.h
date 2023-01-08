@@ -29,4 +29,5 @@ extern double time_measurement(void);
 
 extern void argument_array(char * argv_parameter);
 extern void argument_file_read_point(char * argv_parameter);
+extern void argument_hashes(char * argv_parameter);
 #endif
