@@ -25,6 +25,8 @@ include_directories(
     files
     deps/console-colors
     bitwise
+    hashes
+    c_arg_parse
     )
 
 #add_subdirectory(arrays)
@@ -34,11 +36,12 @@ add_executable(ctests
     deps/console-colors/console-colors.c
     arrays/array_func.c
     bitwise/bitwise.c
-    argv_parse/arg_parse.c
+    c_arg_parse/arg_parse.c
     argv_parse/arg_parse_config.c
     fun_pointers/func_pointers.c
     functions/different_functions.c
     main/main.c
+    hashes/hash_calc.c
     files/files.c
     recursion1/recur.c
     std_lib_object/std_lib_object.c
