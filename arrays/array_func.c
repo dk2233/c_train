@@ -97,7 +97,54 @@ bool create_array(void ** tab, int size_of_array, size_t size_of_one_element )
 
 }
 
+void check_char_array(void)
+{
+    #define TAB_ARRAY_SIZE 4
 
+    void *vp;
+
+    char * tab_array[TAB_ARRAY_SIZE] = {"word1", "word2", "alpha1", "::bvxc"};
+    printf("********* Test array char **********\nThis here shows addresses based on const pointers char:\n");
+
+    for(int i = 0; i < TAB_ARRAY_SIZE; i++)
+    {
+        printf("%p -> %s\n", &tab_array[i], tab_array[i]);
+    }
+
+     char **pp_char = &tab_array[1];
+     char *p_char = *pp_char;
+     vp = (void*)p_char;
+
+     int *(p_int) = (int*)vp;
+     p_int++;
+
+    /* where this pp_char points to */
+    pp_char++;
+    p_char++;
+    /* and now where*/
+
+
+
+
+
+    printf("lets do some malloc playtim\n");
+
+    for(int i = 0 ; i < TAB_ARRAY_SIZE; i++)
+    {
+        printf("give word:");
+        tab_array[i] = calloc(1000, sizeof(char));
+        scanf("%s",tab_array[i]);
+
+    }
+
+    for(int i = 0; i < TAB_ARRAY_SIZE; i++)
+    {
+        printf("%p -> %s\n", &tab_array[i], tab_array[i]);
+    }
+    printf("*********END Test array char **********\n");
+
+
+}
 
 
 

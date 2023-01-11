@@ -17,4 +17,6 @@ extern void check_array_argument(int tab[FUNCTION_ARGUMENT]);
 
 extern bool create_array(void ** tab, int size_of_array, size_t size_of_one_element );
 
+extern void check_char_array(void); 
+
 #endif
