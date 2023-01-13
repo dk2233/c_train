@@ -23,7 +23,7 @@ int * array_parse(int nr_element)
      *  is it possible to return internal array_a
      *  and have access to it after leaving this function?*/
     static int *array_a;
-    uint8_t i;
+    int i;
 
     array_a =malloc(nr_element* sizeof(int));
 
