@@ -15,6 +15,7 @@
  *
  * =====================================================================================
  */
+#include "different_functions.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -112,7 +113,7 @@ double time_measurement(void)
     else 
     {
         clock_t diff =  clock() - time_status.clock_start_value;
-        printf("us pass %ld\n", diff);
+        printf("time in us pass %ld\n", diff);
         period = (double)(diff)/CLOCKS_PER_SEC;
         time_status.measurement_started = 0;
     }
@@ -226,5 +227,30 @@ void argument_file_read(char * argv_parameter)
         free(line1);
 
 
+    }
+}
+
+void argument_file_size(char *arg_text)
+{
+    double time1 = time_measurement();
+    FILE *file1 = fopen(arg_text,"r");
+
+    assert(file1);
+
+    if (file1 != NULL)
+    {
+        long int  file_size;
+
+        file_size = file_length(file1);
+
+        fclose(file1);
+        printf("Mb: %lf ",(float)file_size/1024/1024);
+        printf("Gb: %lf \n",(float)file_size/1024/1024/1024);
+
+        time_measurement();
+    }
+    else
+    {
+        fprintf(stderr, "problem opening file %s\n",arg_text);
     }
 }
