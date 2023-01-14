@@ -23,6 +23,8 @@
 #include "files.h"
 #include "structs.h"
 #include "hash_calc.h"
+#include <assert.h>
+#include "std_lib_object.h"
 
 void sum_to_int(void* a, void* b)
 {
@@ -32,24 +34,31 @@ void sum_to_int(void* a, void* b)
 
 
 
-int read_one_line_from_file(FILE * file_handler, char * line)
+long int read_one_line_from_file(FILE * file_handler, char * line)
 {
-    int return_value = -1;
+    long int return_value = 0;
     if (NULL != file_handler)
     {
         char char1;
         do
         { 
             char1 = fgetc(file_handler);
+            if (char1 == EOF)
+            {
+                return_value = -1;
+                *(line) = '\0';
+                break;
+            }
             *(line++) = char1;
+            return_value++;
         }
-        while((char1 != '\n' ) && (char1 != '\0'));   
+        while((char1 != '\n' ) && (char1 != '\0') && (char1 > -1) );   
 
-        return_value = 0;
     }
     else
     {
         printf(" There is no such file as you gave \n");
+        return_value = -1;
     }
     return return_value;
 }
@@ -188,4 +197,34 @@ void argument_hashes(char * argv_parameter)
     printf("sring to hash %s\n",argv_parameter);
     printf("hash %ld\n",hash_dbj2(argv_parameter));
 
+}
+
+void argument_file_read(char * argv_parameter)
+{
+    #define ONE_LINE    1000U
+    FILE *file1;
+
+    file1 = fopen(argv_parameter, "r");
+
+    assert(file1);
+
+    if (NULL != file1)
+    {
+        long int state = 0;
+
+        char * line1 = calloc(ONE_LINE, sizeof(char));
+        printf("file size %s is %ld\n\n",argv_parameter, std_objects.file_size(file1));
+
+        do
+        {
+                state = std_objects.read_line_from_file(file1, line1);
+                printf("%s", line1);
+
+        } while (state > 0);
+        
+
+        free(line1);
+
+
+    }
 }
