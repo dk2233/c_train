@@ -48,6 +48,7 @@ void test_different_bitwise(void)
     char not_a = ~a;
     char and_a_b = a & b;
     int int_enum = (int)INT_TYPE;
+    int number_to_bits = 0;
     printf("var is equal to %d and NOT is %d hex %hhX\n",a, not_a, not_a);
     printf("var is equal to %d and AND with b is %d hex %hhX\n",a, (char)and_a_b, and_a_b);
 
@@ -58,7 +59,10 @@ void test_different_bitwise(void)
     printf("minus var is  %d not %hhx\n",minus_a, ~minus_a );
 
 
-    call_all_function(&fptr_struct);
+    printf("give unsigned int number to be changed");
+    scanf("%d",&number_to_bits);
+
+    fptr_array[6].argument1 = (void*)&number_to_bits;
     call_all_function(&fptr_struct);
     int b_int = 19;
     a_int = 5;
