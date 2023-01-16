@@ -20,6 +20,14 @@ typedef struct emp_ {
     float salary;
 } emp_t;
 
+typedef struct _linked_list
+{
+    struct _linked_list * next_list;
+    // linked_list_t * prev_list;
+    int data;
+
+} linked_list_t;
+
 
 extern void check_size_and_offset(emp_t test_struct);
 
@@ -34,5 +42,15 @@ extern void struct_playground(void);
 extern void use_struct_flexible_array( int size_of_struct);
 
 extern int define_Point_struct(Point ** points_array);
+
+extern void linked_list_init(linked_list_t ** p_list, int input_data);
+
+extern void linked_list_add(linked_list_t * head, int input_data);
+
+extern void linked_list_lists(linked_list_t *head);
+
+extern void linked_list_free(linked_list_t *head);
+
+extern void linked_list_find_last(linked_list_t ** p_list);
 
 #endif

@@ -13,6 +13,7 @@
 #include "console-colors.h"
 #include "bitwise.h"
 
+static linked_list_t *head_list;
 
 static int tab_test[FUNCTION_ARGUMENT] =
 {
@@ -50,6 +51,7 @@ int main(int argc,char *argv[])
         cc_fprintf(CC_FG_YELLOW, stdout, "> d\\D structs \n");
         cc_fprintf(CC_FG_GREEN, stdout, "> f\\F function pointers \n");
         printf("> g\\G files \n");
+        cc_fprintf(CC_BG_GREEN, stdout, "> l\\L linked list\n");
         printf("> r\\R recursion \n");
         cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
         // option = getchar();
@@ -114,6 +116,16 @@ int main(int argc,char *argv[])
         case 'R':    
             recursion_playground();
             break;
+        case 'l':
+        case 'L':
+        
+
+            linked_list_init(&head_list, 10);
+            linked_list_add(head_list, 20);
+            linked_list_add(head_list, 23);
+            linked_list_add(head_list, 673);
+            linked_list_add(head_list, 73);
+            linked_list_lists(head_list);
 
         default:
             break;
@@ -125,7 +137,7 @@ int main(int argc,char *argv[])
     
 
 
-
+    linked_list_free(head_list);
 /*
  *"---------------------------------------------------
  */

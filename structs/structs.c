@@ -205,7 +205,77 @@ debug this procedure
 
     free(flex2);
 
+}
+
+
+
+void linked_list_init(linked_list_t ** p_list, int input_data)
+{
+
+    *p_list = calloc(1, sizeof(linked_list_t));
+
+    (*p_list)->next_list = NULL;
+    (*p_list)->data = input_data;
+
+}
+
+void linked_list_find_last(linked_list_t ** p_list)
+{
+    while((*p_list)->next_list != NULL)
+    {
+        *p_list = (*p_list)->next_list;
+    }
+}
+void linked_list_add(linked_list_t * head, int input_data)
+{
+    /* creating new list and allocate memory to it*/
+    linked_list_t * p_list = calloc(1, sizeof(linked_list_t)); 
+    linked_list_t * p_list2 = head;
+
+    linked_list_find_last(&p_list2);
+
+
+    p_list2->next_list = p_list;
+    p_list->next_list = NULL;
+    p_list->data = input_data;
+}
+
+void linked_list_lists(linked_list_t *head)
+{
+    linked_list_t * list = head;
+
+    do {
+
+        printf("list %p data = %d\n",list, list->data);
+        if (NULL == list->next_list )
+        {
+            break;
+        }
+        list = list->next_list;
+
+    }
+    while(1);
+}
+
+void linked_list_free(linked_list_t *head)
+{
+    linked_list_t * p_list = head;
+
+    do {
+        if (NULL == head)
+        {
+            break;
+        }
+
+        head = head->next_list;
+        free(p_list);
+        p_list = head;
+    }
+    while(1);
+
+}
+
+void init_dictionary()
+{
     
-
-
 }
