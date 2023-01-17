@@ -27,6 +27,7 @@ include_directories(
     bitwise
     hashes
     c_arg_parse
+    types
     )
 
 #add_subdirectory(arrays)
@@ -47,7 +48,9 @@ add_executable(ctests
     std_lib_object/std_lib_object.c
     strings/str_change.c
     strings/str_functions.c
-    structs/structs.c)
+    structs/structs.c
+    types/c_types.c
+    )
     
 #target_include_directories(ctests 
 #    $(CMAKE_CURRENT_LIST_DIR))

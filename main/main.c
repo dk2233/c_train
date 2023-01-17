@@ -12,6 +12,7 @@
 #include "arg_parse.h"
 #include "console-colors.h"
 #include "bitwise.h"
+#include "c_types.h"
 
 static linked_list_t *head_list;
 
@@ -53,6 +54,7 @@ int main(int argc,char *argv[])
         printf("> g\\G files \n");
         cc_fprintf(CC_BG_GREEN, stdout, "> l\\L linked list\n");
         printf("> r\\R recursion \n");
+        cc_fprintf(CC_BG_CYAN, stdout, "> t\\T types list \n");
         cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
         // option = getchar();
         scanf("%s", option);
@@ -127,6 +129,9 @@ int main(int argc,char *argv[])
             linked_list_add(head_list, 73);
             linked_list_lists(head_list);
 
+        case 't':
+        case 'T':
+            show_all_defined_types(type_tosize);
         default:
             break;
         }
