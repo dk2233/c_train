@@ -6,7 +6,14 @@
 #ifndef RECUR_H
 #define RECUR_H
 
-extern int bitCount(int val);
+struct byte_structure 
+{
+    int ones_cnt;
+    int bits_cnt;
+
+};
+
+extern struct byte_structure bitCount(int val) ;
 
 extern int bitCountShift(int val);
 

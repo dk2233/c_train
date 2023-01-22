@@ -1,22 +1,41 @@
 #include "recur.h"
 #include <stdio.h>
+#include <assert.h>
 
 #define BYTE_SIZE   8U
 
-int result=0;
+static int count_bits = 0;
 
-int bitCount(int val) {
-/*    if (val==0)  result;
- */
-   if (val==1)  result++;
-   if (val>=2)
+static struct byte_structure result = {0, 0};
+
+
+struct byte_structure bitCount(int val) {
+    static int count_repeat = 0;
+    static struct byte_structure byte_data = {0, 0};
+    
+    if (0 == count_repeat )
+    {
+        byte_data.bits_cnt = 0;
+        byte_data.ones_cnt = 0;
+
+    }
+
+   if (val>0)
       {
-      val=val-2;
-       result++;
-      }   
+       byte_data.bits_cnt++;
+       if (val % 2) byte_data.ones_cnt++;
+       val = val / 2;
+
+      } 
+   count_repeat++;
+//    printf("repeat %d val %d \n",count_repeat, val);     
    if (val > 0)  bitCount(val);
-   return result;
+
+    count_repeat = 0;
+   
+   return byte_data;
 }
+
 
 int bitCountShift(int value)
 {
@@ -85,9 +104,23 @@ void recursion_playground(void)
 
     };
     int nr;
+#ifdef TESTS
+/*
+simple unit tests*/
+struct byte_structure test_43445 = { 9, 16 };
+struct byte_structure test_64 = { 1, 7 };
+
+
+assert( (bitCount(64)).ones_cnt == test_64.ones_cnt);
+assert( (bitCount(64)).ones_cnt == test_64.ones_cnt);
+assert( (bitCount(43445)).bits_cnt == test_43445.bits_cnt);
+assert( (bitCount(43445)).bits_cnt == test_43445.bits_cnt);
+#endif
+
     printf("podaj liczbe:");
     scanf("%d", &nr);
-    printf(" ones in %d is %d\n            ", nr, bitCount(nr));
+    struct byte_structure result = bitCount(nr);
+    printf(" ones in %d is %d\n bits position %d\n", nr, result.ones_cnt, result.bits_cnt);
 
 
     for ( unsigned char i = 0; i < (sizeof(tab_numbers)/ sizeof( type_numbers)); i++)
