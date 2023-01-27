@@ -27,7 +27,7 @@ int main(int argc,char *argv[])
 {
     int *tab;
     uint8_t i=0;
-    int nr = 10;
+    int nr = (10, 20);
     int * new_tab = NULL;
     char a1, a2, a3;
 
@@ -132,6 +132,7 @@ int main(int argc,char *argv[])
         case 't':
         case 'T':
             show_all_defined_types(type_tosize);
+            different_assignment();
         default:
             break;
         }

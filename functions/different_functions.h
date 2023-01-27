@@ -31,4 +31,5 @@ extern void argument_file_read_point(char * argv_parameter);
 extern void argument_hashes(char * argv_parameter);
 extern void argument_file_read(char * argv_parameter);
 extern void argument_file_size(char *arg_text);
+extern void different_assignment(void);
 #endif

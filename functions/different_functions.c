@@ -254,3 +254,17 @@ void argument_file_size(char *arg_text)
         fprintf(stderr, "problem opening file %s\n",arg_text);
     }
 }
+
+void different_assignment(void)
+{
+    int nr = (10,20);
+    int i;
+
+    printf("nr  =  %d", nr),
+    printf("\n");
+
+    nr = ( i = 9, i++, nr = 6 - i);
+    printf("nr = %d \n",  nr);
+    nr =  i = 9, i++, 6 - i;
+    printf("nr = %d \n",  nr);
+}
