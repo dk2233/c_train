@@ -17,7 +17,7 @@ extern struct byte_structure bitCount(int val) ;
 
 extern int bitCountShift(int val);
 
-extern int power_of_2(int base, int input);
+extern long int power_of_2(int base, int input);
 
 extern 
 void recursion_playground(void);

@@ -5,6 +5,10 @@ project(ctests)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+
+find_package(Threads REQUIRED)
 
 set(CMAKE_CXX_COMPILER gcc)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -29,6 +33,7 @@ include_directories(
     hashes
     c_arg_parse
     types
+    pthread
     )
 
 #add_subdirectory(arrays)
@@ -51,11 +56,12 @@ add_executable(ctests
     strings/str_functions.c
     structs/structs.c
     types/c_types.c
+    pthread/pthread_test.c
     )
     
 #target_include_directories(ctests 
 #    $(CMAKE_CURRENT_LIST_DIR))
 
-target_link_libraries(ctests -Wall -Wextra)
+target_link_libraries(ctests -Wall -Wextra ${CMAKE_THREAD_LIBS_INIT})
  
 

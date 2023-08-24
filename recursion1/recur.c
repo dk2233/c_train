@@ -62,13 +62,13 @@ int rec_mul(int input)
     return result;
 }
 
-int power_of_2(int base, int input)
+long int power_of_2(int base, int input)
 {
     /*  2^2 - 2 + 2
      *  2^3 - (2 + 2) + (2 + 2) 
      *
      *  */
-    static int result = 1;
+    static long int result = 1;
 
     input--;
     if (input > 0)
@@ -126,7 +126,7 @@ assert( (bitCount(43445)).bits_cnt == test_43445.bits_cnt);
     for ( unsigned char i = 0; i < (sizeof(tab_numbers)/ sizeof( type_numbers)); i++)
     {
 
-        printf(" %d to the power  %d is %d\n ",
+        printf(" %d to the power  %d is %ld\n ",
                tab_numbers[i].base,
                tab_numbers[i].power_to,
                power_of_2(tab_numbers[i].base,tab_numbers[i].power_to));

@@ -13,6 +13,7 @@
 #include "console-colors.h"
 #include "bitwise.h"
 #include "c_types.h"
+#include "pthread_test.h"
 
 static linked_list_t *head_list;
 
@@ -55,6 +56,7 @@ int main(int argc,char *argv[])
         cc_fprintf(CC_BG_GREEN, stdout, "> l\\L linked list\n");
         printf("> r\\R recursion \n");
         cc_fprintf(CC_BG_CYAN, stdout, "> t\\T types list \n");
+        cc_fprintf(CC_FG_GRAY, stdout , "p\\P pthreads \n");
         cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
         // option = getchar();
         scanf("%s", option);
@@ -133,6 +135,10 @@ int main(int argc,char *argv[])
         case 'T':
             show_all_defined_types(type_tosize);
             different_assignment();
+        case 'p':
+        case 'P':
+            pthread_test();
+            break;
         default:
             break;
         }
