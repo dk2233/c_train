@@ -34,6 +34,7 @@ include_directories(
     c_arg_parse
     types
     pthread
+    sockets
     )
 
 #add_subdirectory(arrays)
@@ -57,6 +58,7 @@ add_executable(ctests
     structs/structs.c
     types/c_types.c
     pthread/pthread_test.c
+    sockets/sockets.c
     )
     
 #target_include_directories(ctests 

@@ -14,6 +14,7 @@
 #include "bitwise.h"
 #include "c_types.h"
 #include "pthread_test.h"
+#include "sockets.h"
 
 static linked_list_t *head_list;
 
@@ -57,6 +58,7 @@ int main(int argc,char *argv[])
         printf("> r\\R recursion \n");
         cc_fprintf(CC_BG_CYAN, stdout, "> t\\T types list \n");
         cc_fprintf(CC_FG_GRAY, stdout , "p\\P pthreads \n");
+        cc_fprintf(CC_FG_GREEN, stdout , "o\\O socket server \n");
         cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
         // option = getchar();
         scanf("%s", option);
@@ -130,14 +132,20 @@ int main(int argc,char *argv[])
             linked_list_add(head_list, 673);
             linked_list_add(head_list, 73);
             linked_list_lists(head_list);
+            break;
 
         case 't':
         case 'T':
             show_all_defined_types(type_tosize);
             different_assignment();
+            break;
         case 'p':
         case 'P':
             pthread_test();
+            break;
+        case 'o':
+        case 'O':
+            run_server_socket();
             break;
         default:
             break;
