@@ -15,6 +15,7 @@
 #include "c_types.h"
 #include "pthread_test.h"
 #include "sockets.h"
+#include "keywords.h"
 
 static linked_list_t *head_list;
 
@@ -55,6 +56,7 @@ int main(int argc,char *argv[])
         cc_fprintf(CC_FG_GREEN, stdout, "> f\\F function pointers \n");
         printf("> g\\G files \n");
         cc_fprintf(CC_BG_GREEN, stdout, "> l\\L linked list\n");
+        cc_fprintf(CC_FG_BLUE, stdout, "> k\\K keywords test\n");
         printf("> r\\R recursion \n");
         cc_fprintf(CC_BG_CYAN, stdout, "> t\\T types list \n");
         cc_fprintf(CC_FG_GRAY, stdout , "p\\P pthreads \n");
@@ -146,6 +148,11 @@ int main(int argc,char *argv[])
         case 'o':
         case 'O':
             run_server_socket();
+            break;
+
+        case 'k':
+        case 'K':
+            check_alignas();
             break;
         default:
             break;

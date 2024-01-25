@@ -35,6 +35,7 @@ include_directories(
     types
     pthread
     sockets
+    keywords
     )
 
 #add_subdirectory(arrays)
@@ -59,6 +60,7 @@ add_executable(ctests
     types/c_types.c
     pthread/pthread_test.c
     sockets/sockets.c
+    keywords/keywords.c
     )
     
 #target_include_directories(ctests 
