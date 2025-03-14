@@ -15,6 +15,8 @@
 #include "c_types.h"
 #include "pthread_test.h"
 #include "sockets.h"
+#include "keywords.h"
+#include "scope.h"
 
 static linked_list_t *head_list;
 
@@ -48,17 +50,19 @@ int main(int argc,char *argv[])
     do
     {
         cc_fprintf(CC_FG_BLUE, stdout, "************************************************\n");
-        cc_fprintf(CC_BG_CYAN, stdout, "> s\\S strings \n");
         printf("> a\\A arrays \n");
         printf("> b\\B bitwise \n");
         cc_fprintf(CC_FG_YELLOW, stdout, "> d\\D structs \n");
         cc_fprintf(CC_FG_GREEN, stdout, "> f\\F function pointers \n");
         printf("> g\\G files \n");
         cc_fprintf(CC_BG_GREEN, stdout, "> l\\L linked list\n");
+        cc_fprintf(CC_FG_BLUE, stdout, "> k\\K keywords test\n");
         printf("> r\\R recursion \n");
         cc_fprintf(CC_BG_CYAN, stdout, "> t\\T types list \n");
         cc_fprintf(CC_FG_GRAY, stdout , "p\\P pthreads \n");
         cc_fprintf(CC_FG_GREEN, stdout , "o\\O socket server \n");
+        cc_fprintf(CC_BG_CYAN, stdout, "> s\\S strings \n");
+        cc_fprintf(CC_BG_MAGENTA, stdout , "z\\Z scope tests \n");
         cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
         // option = getchar();
         scanf("%s", option);
@@ -147,6 +151,16 @@ int main(int argc,char *argv[])
         case 'O':
             run_server_socket();
             break;
+
+        case 'k':
+        case 'K':
+            check_alignas();
+            break;
+        case 'z':
+        case 'Z':
+            scope_blocks();
+            break;
+
         default:
             break;
         }
