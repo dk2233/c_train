@@ -13,6 +13,7 @@ structs playing
 #include <stdint.h>
 #include <stddef.h>
 
+void struct_bitfield(void);
 /*
 this function shows how to allocate structure of
 some type
@@ -104,6 +105,15 @@ void show_employee_array(int size, Employee *emp_db)
     }
 }
 
+void struct_bitfield(void)
+{
+    bitfield_union_t  bits1; 
+
+    bits1.data_bits.a0 = 1;
+    bits1.data_bits.a4 = 1;
+
+    printf("bits in bitfield %xd\n", bits1.data_u8);
+}
 
 void struct_playground(void)
 {
@@ -120,6 +130,8 @@ void struct_playground(void)
         int y;
         char z;
     } Point2;
+
+    struct_bitfield();
 
     use_struct_flexible_array(4);
 
@@ -154,6 +166,8 @@ void struct_playground(void)
 
     show_employee_array(nr2, arrayEmp2);
     free(arrayEmp2);
+
+
 }
 
 void check_size_and_offset(emp_t test_struct)
