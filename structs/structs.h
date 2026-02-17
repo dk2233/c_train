@@ -74,4 +74,6 @@ extern void linked_list_free(linked_list_t *head);
 
 extern void linked_list_find_last(linked_list_t ** p_list);
 
+extern Employee define_employee(char * name, float age );
+
 #endif

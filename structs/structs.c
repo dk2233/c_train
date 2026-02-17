@@ -12,6 +12,8 @@ structs playing
 #include <stdio.h>
 #include <stdint.h>
 #include <stddef.h>
+#include <string.h>
+#include <time.h>
 
 void struct_bitfield(void);
 /*
@@ -70,6 +72,22 @@ Employee * define_employee_array(int elements)
     }
     return employers_db;
 }
+
+Employee define_employee(char * name, float age )
+{
+    Employee emp;
+    static time_t tm;
+    (void)gmtime(&tm);
+
+    srand((unsigned int)tm);
+    emp.id = rand();
+    memcpy(emp.name, name, strlen(name));
+    emp.age = age;
+
+    return emp;
+
+}
+
 
 /*
 function that allocates new structure
@@ -133,6 +151,14 @@ void struct_playground(void)
 
     struct_bitfield();
 
+
+    Employee emp[10];
+    
+    emp[0] = define_employee("Maja", 5);
+
+    emp[1] = define_employee("Gabrys", 2);
+
+    printf("name of first %s\n", emp[0].name);
     use_struct_flexible_array(4);
 
     Point1 point1_1 = { 90, 90.56, 91};
