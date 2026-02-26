@@ -1,6 +1,8 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
+#include "stdint.h"
+
 typedef struct {
 int x;
 int y;
@@ -28,6 +30,25 @@ typedef struct _linked_list
 
 } linked_list_t;
 
+typedef struct 
+{
+    uint8_t  a0:1;
+    uint8_t  a1:1;
+    uint8_t  a2:1;
+    uint8_t  a3:1;
+    uint8_t  a4:1;
+    uint8_t  a5:1;
+    uint8_t  a6:1;
+    uint8_t  a7:1;
+} bitfield8_t;
+
+typedef union 
+{
+    bitfield8_t  data_bits;
+    uint8_t data_u8;
+
+} bitfield_union_t;
+
 
 extern void check_size_and_offset(emp_t test_struct);
 
@@ -53,4 +74,7 @@ extern void linked_list_free(linked_list_t *head);
 
 extern void linked_list_find_last(linked_list_t ** p_list);
 
+extern Employee define_employee(char * name, float age );
+
+extern void struct_print_employee(Employee employee);
 #endif

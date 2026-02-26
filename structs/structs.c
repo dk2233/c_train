@@ -6,12 +6,18 @@ structs playing
 
 
 */
-#include "structs.h"
 #include "defines.h"
+#include "structs.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stddef.h>
+#include <string.h>
+#include <time.h>
+
+void struct_bitfield(void);
+
+Employee Employee_defined_in_function;
 
 /*
 this function shows how to allocate structure of
@@ -70,6 +76,25 @@ Employee * define_employee_array(int elements)
     return employers_db;
 }
 
+Employee define_employee(char * name, float age )
+{
+    // Employee Employee_defined_in_function;
+    static time_t tm;
+    (void)gmtime(&tm);
+
+    srand((unsigned int)tm);
+    Employee_defined_in_function.id = rand();
+    memcpy(Employee_defined_in_function.name, name, strlen(name));
+    Employee_defined_in_function.age = age;
+
+    return Employee_defined_in_function;
+
+}
+
+void struct_print_employee(Employee employee)
+{
+    printf("%d -> %s is %f age old  \n", employee.id ,   employee.name, employee.age);
+}
 /*
 function that allocates new structure
 and returns it through argument for further use outside of function
@@ -104,6 +129,15 @@ void show_employee_array(int size, Employee *emp_db)
     }
 }
 
+void struct_bitfield(void)
+{
+    bitfield_union_t  bits1; 
+
+    bits1.data_bits.a0 = 1;
+    bits1.data_bits.a4 = 1;
+
+    printf("bits in bitfield %xd\n", bits1.data_u8);
+}
 
 void struct_playground(void)
 {
@@ -121,6 +155,23 @@ void struct_playground(void)
         char z;
     } Point2;
 
+    struct_bitfield();
+
+
+
+    Employee emp[10];
+    
+    emp[0] = define_employee("Maja", 5);
+
+    struct_print_employee(Employee_defined_in_function);
+
+    emp[1] = define_employee("Gabrys", 2);
+
+    struct_print_employee(Employee_defined_in_function);
+
+    struct_print_employee(emp[0]);
+
+    printf("name of first %s\n", emp[0].name);
     use_struct_flexible_array(4);
 
     Point1 point1_1 = { 90, 90.56, 91};
@@ -154,6 +205,8 @@ void struct_playground(void)
 
     show_employee_array(nr2, arrayEmp2);
     free(arrayEmp2);
+
+
 }
 
 void check_size_and_offset(emp_t test_struct)

@@ -4,6 +4,7 @@
 #include "recur.h"
 #include "stdio.h"
 #include "stdint.h"
+#include "test_threads.h"
 
 void * function_4_thread(void * input);
 void * threads_loop(void * input);
@@ -13,8 +14,6 @@ void pthread_challenge1(void);
 void *fun_ch2_thread(void *arg);
 void pthread_challenge2(void);
 
-#define MAX_THREADS   5u
-#define CH1_THREADS_NUMBER 10u
 
 static int result = 0;
 static pthread_mutex_t lock_mutex;
@@ -148,6 +147,9 @@ void pthread_test(void)
 
     pthread_challenge1();
     pthread_challenge2();
+
+
+    test_c11_threads();
 
 }
 

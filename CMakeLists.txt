@@ -37,6 +37,7 @@ include_directories(
     sockets
     keywords
     scope
+    threads
     )
 
 #add_subdirectory(arrays)
@@ -63,6 +64,7 @@ add_executable(ctests
     sockets/sockets.c
     keywords/keywords.c
     scope/scope.c
+    threads/test_threads.c
     )
     
 #target_include_directories(ctests 

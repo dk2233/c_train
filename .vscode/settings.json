@@ -1,0 +1,52 @@
+{
+    "C_Cpp.default.browse.databaseFilename": "./**",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.default.includePath": [
+        "./**",
+        "/usr/include"
+    ],
+    "editor.rename.enablePreview": true,
+    "C_Cpp.default.browse.path": [
+        "./**"
+    ],
+
+    "files.associations": {
+        "stdlib.h": "c",
+        "std_lib_object.h": "c",
+        "defines.h": "c",
+        "stdint.h": "c",
+        "structs.h": "c",
+        "hash_calc.h": "c",
+        "stdio.h": "c",
+        "cstdlib": "c",
+        "files.h": "c",
+        "stdbool.h": "c",
+        "arg_parse.h": "c",
+        "threads.h": "c",
+        "test_threads.h": "c"
+    },
+
+    "makefile.makePath": "mingw32-make",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\daniel.kucharski\\Documents\\cprogramming\\c_train",
+            "binaryPath": "c:\\Users\\daniel.kucharski\\Documents\\cprogramming\\c_train\\ctests",
+            "binaryArgs": []
+        }
+    ],
+    "cmake.configureOnOpen": true,
+    "launch": {
+    
+        "configurations": [],
+        "compounds": []
+    },
+    "debug.console.closeOnEnd": false,
+    "debug.terminal.clearBeforeReusing": true,
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "svn.autorefresh" : false,
+    "telemetry.telemetryLevel": "off",
+"github.copilot.enable": { "*": false },
+
+
+}
