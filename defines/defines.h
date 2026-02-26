@@ -2,6 +2,7 @@
 #define DEFINES_H
 
 #include "stdint.h"
+#include "structs.h"
 /*
 simplest possible use of offset calculation
 it requires to define some instance of type
@@ -35,5 +36,6 @@ enum TYPES_C {
     INT_TYPE,
 };
 
+extern Employee Employee_defined_in_function;
 #endif /* COMPONENT_H */
 

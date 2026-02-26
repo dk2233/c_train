@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${default}",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/argv_parse",
+                "${workspaceFolder}/arrays",
+                "${workspaceFolder}/defines",
+                "${workspaceFolder}/files",
+                "${workspaceFolder}/strings",
+                "${workspaceFolder}/functions",
+                "${workspaceFolder}/fun_pointers",
+                "${workspaceFolder}/recursion1",
+                "${workspaceFolder}/structs",
+                "${workspaceFolder}/std_lib_object",
+                "${workspaceFolder}/recursion1",
+                "${workspaceFolder}/deps/console-colors",
+                "/usr/include"
+
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "intelliSenseMode": "${default}",
+            "compileCommands": "${workspaceFolder}/compile_commands.json",
+        }
+    ],
+    "version": 4
+}

@@ -6,8 +6,8 @@ structs playing
 
 
 */
-#include "structs.h"
 #include "defines.h"
+#include "structs.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
@@ -16,6 +16,9 @@ structs playing
 #include <time.h>
 
 void struct_bitfield(void);
+
+Employee Employee_defined_in_function;
+
 /*
 this function shows how to allocate structure of
 some type
@@ -75,20 +78,23 @@ Employee * define_employee_array(int elements)
 
 Employee define_employee(char * name, float age )
 {
-    Employee emp;
+    // Employee Employee_defined_in_function;
     static time_t tm;
     (void)gmtime(&tm);
 
     srand((unsigned int)tm);
-    emp.id = rand();
-    memcpy(emp.name, name, strlen(name));
-    emp.age = age;
+    Employee_defined_in_function.id = rand();
+    memcpy(Employee_defined_in_function.name, name, strlen(name));
+    Employee_defined_in_function.age = age;
 
-    return emp;
+    return Employee_defined_in_function;
 
 }
 
-
+void struct_print_employee(Employee employee)
+{
+    printf("%d -> %s is %f age old  \n", employee.id ,   employee.name, employee.age);
+}
 /*
 function that allocates new structure
 and returns it through argument for further use outside of function
@@ -152,11 +158,18 @@ void struct_playground(void)
     struct_bitfield();
 
 
+
     Employee emp[10];
     
     emp[0] = define_employee("Maja", 5);
 
+    struct_print_employee(Employee_defined_in_function);
+
     emp[1] = define_employee("Gabrys", 2);
+
+    struct_print_employee(Employee_defined_in_function);
+
+    struct_print_employee(emp[0]);
 
     printf("name of first %s\n", emp[0].name);
     use_struct_flexible_array(4);
