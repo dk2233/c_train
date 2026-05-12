@@ -88,11 +88,12 @@ int main(int argc,char *argv[])
             /*
             arrays tests
             */
+            check_array_argument(tab_test);
+
             check_char_array();
 
             check_possibility_of_not_defining_size();
 
-            check_array_argument(tab_test);
             break;
 
         case 'b':
