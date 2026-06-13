@@ -39,6 +39,7 @@ include_directories(
     keywords
     scope
     threads
+    oop
     )
 
 #add_subdirectory(arrays)
@@ -66,6 +67,7 @@ add_executable(ctests
     keywords/keywords.c
     scope/scope.c
     threads/test_threads.c
+    oop/oop.c
     )
     
 #target_include_directories(ctests 

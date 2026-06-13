@@ -17,6 +17,7 @@
 #include "sockets.h"
 #include "keywords.h"
 #include "scope.h"
+#include "oop.h"
 
 static linked_list_t *head_list;
 
@@ -63,6 +64,7 @@ int main(int argc,char *argv[])
         cc_fprintf(CC_FG_GREEN, stdout , "o\\O socket server \n");
         cc_fprintf(CC_BG_CYAN, stdout, "> s\\S strings \n");
         cc_fprintf(CC_BG_MAGENTA, stdout , "z\\Z scope tests \n");
+        cc_fprintf(CC_BG_GREEN, stdout , "n\\N OOP tests \n");
         cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
         // option = getchar();
         scanf("%s", option);
@@ -160,6 +162,10 @@ int main(int argc,char *argv[])
         case 'z':
         case 'Z':
             scope_blocks();
+            break;
+        case 'n':
+        case 'N':
+            oop_simulation();
             break;
 
         default:
