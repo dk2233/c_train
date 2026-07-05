@@ -144,6 +144,11 @@ void check_char_array(void)
     printf("*********END Test array char **********\n");
 
 
+    for(int i = 0 ; i < TAB_ARRAY_SIZE; i++)
+    {
+        free(tab_array[i]);
+    }
+
 }
 
 

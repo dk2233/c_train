@@ -195,7 +195,7 @@ void argument_file_read_point(char * argv_parameter)
 
 void argument_hashes(char * argv_parameter)
 {
-    printf("sring to hash %s\n",argv_parameter);
+    printf("string to hash %s\n",argv_parameter);
     printf("hash %ld\n",hash_dbj2(argv_parameter));
 
 }
@@ -268,3 +268,22 @@ void different_assignment(void)
     nr =  i = 9, i++, 6 - i;
     printf("nr = %d \n",  nr);
 }
+
+void swap(char** a , char ** b)
+{
+    char * temp = *a;
+
+    *a = *b;
+    *b = temp;
+}
+
+
+void show_char_array(int n, char** tab_s)
+{
+    for(int i = 0; i < n; i++)
+    {
+        printf("%s ", tab_s[i]);
+    }
+    printf("\n");
+}
+

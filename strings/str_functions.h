@@ -13,4 +13,5 @@ extern char * string_copy(char * dst, char * copied_string);
 
 extern uint32_t string_length(char* str);
 
+int split_word_to_char_array(char * line, char ** tab_s);
 #endif

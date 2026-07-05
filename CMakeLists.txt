@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16.3)
 
 project(ctests)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD 23)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
@@ -40,6 +40,7 @@ include_directories(
     scope
     threads
     oop
+    permutation
     )
 
 #add_subdirectory(arrays)
@@ -56,6 +57,7 @@ add_executable(ctests
     main/main.c
     hashes/hash_calc.c
     files/files.c
+    files/files_tests.c
     recursion1/recur.c
     std_lib_object/std_lib_object.c
     strings/str_change.c
@@ -68,6 +70,8 @@ add_executable(ctests
     scope/scope.c
     threads/test_threads.c
     oop/oop.c
+    permutation/permut.c 
+    permutation/permutation_test.c
     )
     
 #target_include_directories(ctests 

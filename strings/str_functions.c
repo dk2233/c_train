@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "str_functions.h"
 
 
@@ -96,4 +97,44 @@ uint32_t string_length(char* str)
     }
 
     return l;
+}
+
+/*
+ *
+ split line with strings seperated with space
+ * return number of read words
+ */
+int split_word_to_char_array(char * line, char ** tab_s)
+{
+    int k = 0, pos_space = 0, word_start = 0;
+
+    int length = strlen(line);
+    while(word_start < length)
+    {
+        int new_word_len = 0;
+        char * point_word_end = strchr(&line[word_start], ' ');
+
+        if (point_word_end == NULL) point_word_end = strchr(&line[word_start], '\n');
+        if (point_word_end == NULL) point_word_end = strchr(&line[word_start], '\0');
+
+        if (point_word_end != NULL){
+            pos_space =  point_word_end - &line[0]; //position of space for current word
+            new_word_len = point_word_end - &line[word_start] ;
+        }
+        else break;
+
+        if (tab_s != NULL) {
+            tab_s[k] = calloc(new_word_len+1, sizeof(char));
+            sscanf(&line[word_start], "%s", tab_s[k++] );
+            
+            while( (pos_space < length) && (line[pos_space] == ' '))  { pos_space++;}
+
+            if (line[pos_space] == '\0') break;
+            word_start = pos_space;
+            
+        }
+        else return -1;
+    }
+
+    return k;
 }
