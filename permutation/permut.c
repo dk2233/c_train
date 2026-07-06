@@ -11,9 +11,9 @@
  */
 int next_perm_pandita(int n, char** s)
 {
-    int i,  j = 0, cond = 0, ex = 0;;
+    int i,  j = 0, cond = 0 ;
 
-    for(i = n-2; i >=0 && ex == 0; i--)
+    for(i = n-2; i >=0 ; i--)
     {
         /*
          * 1. Find the largest index i such that s[i] < s[i + 1]. start from max list index -1 (right-hand side)
@@ -28,7 +28,7 @@ int next_perm_pandita(int n, char** s)
             for( j = n - 1 ; j >= 0; j--)
             {
                 if (strcmp(s[i], s[j]) < 0) {
-                    swap(&s[i], &s[j]);
+                    swap((void**)&s[i], (void **)&s[j]);
 
                    /* reverse elements from i+1 to  the end of strings
                     *
@@ -38,10 +38,9 @@ int next_perm_pandita(int n, char** s)
 
                     while(start < end)
                     {
-                        swap(&s[start++], &s[end--]);
+                        swap((void**)&s[start++], (void**)&s[end--]);
 
                     }
-                    //ex = 1;
                     break;
                 }
             }

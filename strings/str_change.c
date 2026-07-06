@@ -99,6 +99,7 @@ void string_different_tests(void)
 
     free(str1);
     free(str2);
+    free(tab);
 }
 
 
