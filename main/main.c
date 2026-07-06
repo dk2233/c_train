@@ -19,6 +19,7 @@
 #include "scope.h"
 #include "oop.h"
 #include "permut.h"
+#include "sorts.h"
 
 static linked_list_t *head_list;
 
@@ -67,6 +68,7 @@ int main(int argc,char *argv[])
         cc_fprintf(CC_BG_MAGENTA, stdout , "z\\Z scope tests \n");
         cc_fprintf(CC_BG_GREEN, stdout , "n\\N OOP tests \n");
         printf("> 1\\1 permutation \n");
+        cc_fprintf(CC_FG_GREEN, stdout , "2\\2 sorting \n");
         cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
 
         // option = getchar();
@@ -172,6 +174,9 @@ int main(int argc,char *argv[])
             break;
         case '1':
             permutation_test();
+            break;
+        case '2':
+            sort_test();
             break;
 
         default:

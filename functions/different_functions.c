@@ -18,6 +18,7 @@
 #include "different_functions.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 #include <stdbool.h>
 #include "array_func.h"
@@ -269,12 +270,19 @@ void different_assignment(void)
     printf("nr = %d \n",  nr);
 }
 
-void swap(char** a , char ** b)
+void swap(void** a , void ** b)
 {
-    char * temp = *a;
+    void * temp = *a;
 
     *a = *b;
     *b = temp;
+}
+void generic_swap(void *a, void *b, size_t size)
+{
+    char temp[size];
+    memcpy(temp, a, size);
+    memcpy(a, b, size);
+    memcpy(b, temp, size);
 }
 
 
@@ -287,3 +295,12 @@ void show_char_array(int n, char** tab_s)
     printf("\n");
 }
 
+void show_base_array(int n, void* tab_s , size_t element_size, void (*print_type)(void * data))
+{
+
+    for(int i = 0; i < n; i++)
+    {
+        print_type( tab_s+ element_size*i);
+    }
+    printf("\n");
+}

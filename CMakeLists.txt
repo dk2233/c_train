@@ -41,6 +41,7 @@ include_directories(
     threads
     oop
     permutation
+    sorting
     )
 
 #add_subdirectory(arrays)
@@ -72,6 +73,8 @@ add_executable(ctests
     oop/oop.c
     permutation/permut.c 
     permutation/permutation_test.c
+    sorting/sort_test.c
+    sorting/sorts.c
     )
     
 #target_include_directories(ctests 

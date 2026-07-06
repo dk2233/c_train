@@ -33,6 +33,10 @@ extern void argument_file_read(char * argv_parameter);
 extern void argument_file_size(char *arg_text);
 extern void different_assignment(void);
 
-extern void swap(char** a , char ** b);
+extern void swap(void** a , void ** b);
+
+void generic_swap(void *a, void *b, size_t size);
 void show_char_array(int n, char** tab_s);
+
+void show_base_array(int n, void* tab_s , size_t element_size, void (*print_type)(void * data));
 #endif
