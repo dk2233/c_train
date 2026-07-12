@@ -62,14 +62,14 @@ int main(int argc,char *argv[])
         cc_fprintf(CC_FG_BLUE, stdout, "> k\\K keywords test\n");
         printf("> r\\R recursion \n");
         cc_fprintf(CC_BG_CYAN, stdout, "> t\\T types list \n");
-        cc_fprintf(CC_FG_GRAY, stdout , "p\\P pthreads \n");
-        cc_fprintf(CC_FG_GREEN, stdout , "o\\O socket server \n");
+        cc_fprintf(CC_FG_GRAY, stdout , "> p\\P pthreads \n");
+        cc_fprintf(CC_FG_GREEN, stdout , "> o\\O socket server \n");
         cc_fprintf(CC_BG_CYAN, stdout, "> s\\S strings \n");
-        cc_fprintf(CC_BG_MAGENTA, stdout , "z\\Z scope tests \n");
-        cc_fprintf(CC_BG_GREEN, stdout , "n\\N OOP tests \n");
+        cc_fprintf(CC_BG_MAGENTA, stdout , "> z\\Z scope tests \n");
+        cc_fprintf(CC_BG_GREEN, stdout ,   "> n\\N OOP tests \n");
         printf("> 1\\1 permutation \n");
-        cc_fprintf(CC_FG_GREEN, stdout , "2\\2 sorting \n");
-        cc_fprintf(CC_BG_GRAY, stdout, "> q\\Q EXIT \n");
+        cc_fprintf(CC_FG_GREEN, stdout , "> 2\\2 sorting \n");
+        cc_fprintf(CC_BG_GRAY, stdout,   "> q\\Q EXIT \n");
 
         // option = getchar();
         scanf("%s", option);
@@ -95,9 +95,9 @@ int main(int argc,char *argv[])
             /*
             arrays tests
             */
-            check_array_argument(tab_test);
+            display_array(tab_test, FUNCTION_ARGUMENT);
 
-            check_char_array();
+            sandbox_char_array();
 
             check_possibility_of_not_defining_size();
 

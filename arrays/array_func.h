@@ -9,14 +9,14 @@
 
 #define FUNCTION_ARGUMENT 10U
 
-extern int * array_parse(int nr_element);
+extern int * array_int_heap_create(int nr_element);
 
 extern int check_possibility_of_not_defining_size(void);
 
-extern void check_array_argument(int tab[FUNCTION_ARGUMENT]);
+extern void display_array(int * tab, size_t size);
 
 extern bool create_array(void ** tab, int size_of_array, size_t size_of_one_element );
 
-extern void check_char_array(void); 
+extern void sandbox_char_array(void); 
 
 #endif

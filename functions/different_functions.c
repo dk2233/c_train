@@ -137,7 +137,7 @@ void argument_array(char * argv_parameter)
             int *tab;
             printf("array size %d \n",nr);
 
-            tab = array_parse(nr);
+            tab = array_int_heap_create(nr);
 
             if (tab != NULL)
             {
