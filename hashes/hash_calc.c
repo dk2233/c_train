@@ -1,4 +1,4 @@
-
+#include <stdint.h>
 
 unsigned long
     hash_dbj2(unsigned char *str)
@@ -11,3 +11,13 @@ unsigned long
 
         return hash;
     }
+
+
+uint32_t hash_knuth(int key) {
+    uint32_t k = (uint32_t)key;
+    // 2654435761 to liczba pierwsza bliska (2^32 / złoty podział)
+    return (k * 2654435761u); 
+}
+
+
+

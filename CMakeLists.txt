@@ -42,6 +42,7 @@ include_directories(
     oop
     permutation
     sorting
+    maps
     )
 
 #add_subdirectory(arrays)
@@ -75,6 +76,8 @@ add_executable(ctests
     permutation/permutation_test.c
     sorting/sort_test.c
     sorting/sorts.c
+    maps/maps_playground.c
+    maps/maps.c
     )
     
 #target_include_directories(ctests 
