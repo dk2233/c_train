@@ -1,7 +1,5 @@
 #include <stdint.h>
 
-#define MAX_NUMS  32768u
-
 #define LIMIT_OF_MAP_FILL  0.6f
 #define USED   1
 #define EMPTY 0

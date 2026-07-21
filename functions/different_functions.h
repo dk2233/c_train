@@ -19,6 +19,7 @@
  */
 #include <stdio.h>
 #include <time.h>
+#include <stdint.h>
 
 extern void sum_to_int ( void *, void* );
 extern void string_read_line(void * file_handler, void * return_str);
@@ -39,4 +40,6 @@ void generic_swap(void *a, void *b, size_t size);
 void show_char_array(int n, char** tab_s);
 
 void show_base_array(int n, void* tab_s , size_t element_size, void (*print_type)(void * data));
+
+uint32_t next_power_of_two(uint32_t n);
 #endif

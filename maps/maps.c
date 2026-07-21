@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "maps.h"
+#include "different_functions.h"
 #include "hash_calc.h"
 #include <string.h>
 
@@ -143,56 +144,16 @@ void map_init(map_t *map, uint32_t max_number)
  */
 void map_init_heap(map_t * map, uint32_t max_number)
 {
+    if ( (max_number & (max_number -1)) !=  0)
+    {
+        max_number = next_power_of_two(max_number);
+
+
+    }
     map->map = calloc(max_number, sizeof(map_element_t)  );
     
     map_init(map, max_number);
 
 }
-
-
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
-        *returnSize = 2;
-         int *result = calloc(*returnSize, sizeof(int));
-         map_t * map = calloc(MAX_NUMS, sizeof(map_t));
-
-         memset(map, 0, MAX_NUMS*sizeof(map_t));
-
-    for (int i = 0; i < numsSize; i++) {
-        int diff = target - nums[i];
-
-        uint32_t id = map_find_key_id(map, diff);
-
-        if (id != map->max_number_of_element) 
-        {
-            
-            result[0] = i;
-            //result[1] = map[id].value;
-            free(map);
-            return result;
-        }
-
-        uint32_t new_hash = find_empty_map(map, nums[i]);
-
-        //map[new_hash].value = i;
-        //map[new_hash].key = nums[i];
-        //map[new_hash].used = USED;
-        // for (int j = i + 1; j < numsSize; j++) {
-        //     if (nums[i] + nums[j] == target) {
-            
-           
-        //         result[0] = i;
-        //         result[1] = j;
-        //         *returnSize = 2;
-        //         return result;
-        //     }
-        
-
-
-
-    }
-    return result;
-}
-
-
 
 

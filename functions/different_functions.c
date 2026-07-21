@@ -304,3 +304,16 @@ void show_base_array(int n, void* tab_s , size_t element_size, void (*print_type
     }
     printf("\n");
 }
+
+// Zwraca najbliższą potęgę 2 większą lub równą 'n'
+uint32_t next_power_of_two(uint32_t n)
+{
+    if (n == 0) return 1;
+    n--; // decrese in case of already being power of 2 like 128 - 1 = 127
+    n |= n >> 1;  // 63
+    n |= n >> 2;
+    n |= n >> 4;
+    n |= n >> 8;
+    n |= n >> 16;
+    return n + 1;
+}
